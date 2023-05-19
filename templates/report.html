@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Report a Fact!</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+    <!-- Google Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/static/style3.css" />
+</head>
+
+<body>
+    <!-- Top Navigation -->
+    <div class="topnav">
+        <a href="/">Fact Check</a>
+        <a class="active" href="#report">Report</a>
+        <a href="/About">About</a>
+    </div>
+    
+    <div class="container">
+        <h1>Report a News</h1>
+        
+    </div>
+
+    <div class="report-form">
+        <form action="/submitreport" method="POST" onsubmit="submitForm(event)">
+            <div class="left-column">
+                <label for="news-title">News Title:</label>
+                <input type="text" id="news-title" name="news-title" class="news-title">
+
+                <label for="news-content">News Content:</label>
+                <textarea id="news-content" name="news-content" class="news-content" required></textarea>
+
+                <label for="contact-email">Contact Email:</label>
+                <input type="email" id="contact-email" name="contact-email" class="contact-email" required>
+
+            </div>
+            <div class="right-column">
+                <button type="submit" class="submit-button">Submit</button>
+            </div>    
+        </form>       
+    </div>
+
+    <!-- SweetAlert script -->
+    <!-- Sweet alert Js -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.17/dist/sweetalert2.min.js"></script>
+    <script>
+        function submitForm(event) {
+          event.preventDefault(); // Prevent form submission
+      
+          // Get form data
+          var form = event.target;
+          var formData = new FormData(form);
+      
+          // Send form data using AJAX
+          fetch('/submitreport', {
+            method: 'POST',
+            body: formData
+          })
+            .then(response => response.text())
+            .then(data => {
+              // Display SweetAlert success dialog
+              Swal.fire({
+                title: 'Report Submitted',
+                text: 'Your report has been submitted successfully.',
+                icon: 'success',
+              }).then(() => {
+                // Clear input fields
+                document.getElementById('news-title').value = '';
+                document.getElementById('news-content').value = '';
+                document.getElementById('contact-email').value = '';
+              });
+            })
+            .catch(error => {
+              console.error('Error:', error);
+            });
+        }
+      </script>
+      
+    
+    
+    
+</body>
+</html>

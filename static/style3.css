@@ -1,0 +1,129 @@
+/* top navigation */
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+  font-size: 16px;
+}
+  
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+  
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+#news-content {
+  resize: none;
+}
+  
+h1 {
+  font-size: 55px;
+  text-align: center;
+  margin: 0;
+}
+  
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #333;
+}
+  
+  /* Container for the report form */
+  .report-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 60%;
+    background-color: #f2f2f2;
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Style for the left column */
+  .left-column {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  /* Style for the news title input */
+  .news-title {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    padding: 10px;
+    transition: border-bottom-color 0.3s ease;
+  }
+  
+  .news-title:focus {
+    outline: none;
+    border-bottom-color: #3C99DC;
+  }
+  
+  /* Style for the news content input */
+  .news-content {
+    font-size: 20px;
+    width: 100%;
+    height: 400px;
+    resize: none;
+    margin-bottom: 20px;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    padding: 10px;
+    transition: border-bottom-color 0.3s ease;
+  }
+  
+  .news-content:focus {
+    outline: none;
+    border-bottom-color: #3C99DC;
+  }
+  
+  /* Style for the contact email input */
+  .contact-email {
+    font-size: 24px;
+    width: 100%;
+    margin-bottom: 20px;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    padding: 10px;
+    transition: border-bottom-color 0.3s ease;
+  }
+  
+  .contact-email:focus {
+    outline: none;
+    border-bottom-color: #3C99DC;
+  }
+  
+  /* Style for the submit button */
+  .submit-button {
+    width: 100%;
+    background-color: #3C99DC;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 24px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submit-button:hover {
+    background-color: #2D7BB5
+  }
+

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Drag & Drop File Upload</title>
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+
+<body>
+  <!-- Top Navigation -->
+  <div class="topnav">
+    <a class="active" href="#index">Fact Check</a>
+    <a href="/Report">Report</a>
+    <a href="/About">About</a>
+  </div>
+
+  <h1>Fact Check</h1>
+  <div class="container">
+    <div class="upload-section">
+      <form action="{{ url_for('predict') }}" method="post" enctype="multipart/form-data">
+        <label for="upload-button">
+          <i class="fa-solid fa-upload"></i>&nbsp; Choose Or Drop Photos
+          <input type="file" accept="image/*" id="upload-button" name="imagefile" value="{{request.form.imagefile}}" />
+        </label>
+        <div id="error"></div>
+        <div id="image-display"></div>
+      </form>
+    </div>
+
+    <div class="headline-section">
+      <input type="text" id="text-input" name="headline-input" class="input_box" placeholder="Enter your news headline here..." />
+    </div>
+
+    <div class="button-section">
+      <form action="{{ url_for('predict') }}" method="post" enctype="multipart/form-data">
+        <input type="submit" class="button button_check" value="Check">
+      </form>
+      <button class="button button_reset" type="button" onclick="clearcontent('image-display', 'output_display', 'text-input')">Reset</button>
+    </div>
+  </div>
+
+  <div class="progress-bar">
+    <div class="progress"></div>
+  </div>
+
+  <div class="outputcontainer">
+    <output id="output_display" type="output" name="display"></output>
+  </div>
+
+  <!-- Script -->
+  <script src="/static/script.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <script>
+    function clearcontent(elementID, outputID, inputID) {
+      document.getElementById(elementID).innerHTML = "";
+      document.getElementById(outputID).innerHTML = "";
+      document.getElementById(inputID).value = "";
+      // Remove the dropped image from the display
+      var imageInput = document.getElementById("upload-button");
+      imageInput.value = ""; // Clear the image input value
+    }
+  
+    $(function() {
+      $('form').on('submit', function(event) {
+        event.preventDefault();
+  
+        var progressBar = document.querySelector('.progress-bar');
+        var progress = document.querySelector('.progress');
+        progress.style.width = '0%';
+        progressBar.style.display = 'block'; // show the progress bar
+  
+        // Check if an image file is selected
+        var fileInput = $('#upload-button')[0];
+        var imageFile = fileInput.files[0];
+  
+        // Check if text input is provided
+        var headline = $('#text-input').val().trim();
+  
+        if (imageFile) {
+          // Perform image processing
+          var formData = new FormData($('form')[0]);
+          $.ajax({
+            type: 'POST',
+            url: '/predict',
+            data: formData,
+            contentType: false,
+            cache: false,
+            processData: false,
+            beforeSend: function() {
+              // Display loading bar animation
+              progress.style.width = '0%';
+            },
+            xhr: function() {
+              // Create XHR object with progress tracking
+              var xhr = new window.XMLHttpRequest();
+              xhr.upload.addEventListener('progress', function(evt) {
+                if (evt.lengthComputable) {
+                  var percentComplete = (evt.loaded / evt.total) * 100;
+                  progress.style.width = percentComplete + '%';
+                }
+              }, false);
+              return xhr;
+            },
+            success: function(response) {
+              // Update output display
+              $('#output_display').text(response.result);
+              progress.style.width = '0%'; // Reset the progress bar
+              progressBar.style.display = 'none'; // Hide the progress bar after completion
+            }
+          });
+        } else if (headline) {
+        // Simulate progress for text processing
+        var fakeProgress = 0;
+        var intervalId = setInterval(function() {
+          fakeProgress += 10;
+          progress.style.width = fakeProgress + '%';
+          if (fakeProgress >= 100) {
+            clearInterval(intervalId);
+            // Perform processing on the input text
+            var formData = new FormData();
+            formData.append('headline-input', headline);
+            $.ajax({
+              type: 'POST',
+              url: '/predict',
+              data: formData,
+              contentType: false,
+              cache: false,
+              processData: false,
+              success: function(response) {
+                // Update output display
+                $('#output_display').text(response.result);
+                progress.style.width = '0%'; // Reset the progress bar
+                progressBar.style.display = 'none'; // Hide the progress bar after completion
+              }
+            });
+          }
+        }, 500);
+        } else {
+          // No input provided, display an error message
+          $('#output_display').text('Please upload an image or enter text');
+          progressBar.style.display = 'none'; // Hide the progress bar if there's an error
+        }
+      });
+    });
+  </script>
+</body>
+</html>
