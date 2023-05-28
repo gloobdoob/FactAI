@@ -93,6 +93,8 @@ container.addEventListener(
 //   })
 // });
 
+
 window.onload = () => {
   error.innerText = "";
+  
 };

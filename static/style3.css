@@ -24,6 +24,7 @@
 h1 {
   font-size: 55px;
   text-align: center;
+  margin-top: -30px;
   margin: 0;
 }
   
@@ -39,17 +40,19 @@ body {
   
   /* Container for the report form */
   .report-form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-    width: 60%;
-    background-color: #f2f2f2;
-    padding: 50px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-  }
+   display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0 auto;
+  width: 70%; /* Adjusted this to give more space for the team-containers horizontally */
+  max-height: auto; /* Added  this line to set a proper height to the webpage without using the vertical scroll function */
+  margin: 55px auto 0;
+  background-color: #f2f2f2;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
   
   /* Style for the left column */
   .left-column {
@@ -107,16 +110,16 @@ body {
   
   .contact-email:focus {
     outline: none;
-    border-bottom-color: #3C99DC;
+    border-bottom-color: #dc3c3c;
   }
   
   /* Style for the submit button */
   .submit-button {
     width: 100%;
-    background-color: #3C99DC;
+    background-color: #4CAF50;
     color: white;
     border: none;
-    padding: 15px 30px;
+    padding: 15px 50px;
     border-radius: 5px;
     font-size: 24px;
     cursor: pointer;
@@ -124,6 +127,6 @@ body {
   }
   
   .submit-button:hover {
-    background-color: #2D7BB5
+    background-color: #4caf4fc9
   }
 
