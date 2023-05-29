@@ -9,12 +9,19 @@ pd.set_option("display.max_columns", 10)
 # uses cosine similarity
 class SimilarityChecker:
     def __init__(self):
-        self.comp_model = SentenceTransformer('bert-base-nli-mean-tokens')#this is outdated, change this when recreating (the bert-base thing i mean)
+        self.comp_model_en = SentenceTransformer('all-MiniLM-L6-v2')#this is outdated, change this when recreating (the bert-base thing i mean)
+        self.comp_model_tl = SentenceTransformer('jcblaise/roberta-tagalog-base')
 
-    def check_similarity(self, orig_text, comp_text):
+    def check_similarity(self, orig_text, comp_text, lang):
+        orig_text_embeddings = None
+        comp_text_embeddings = None
 
-        orig_text_embeddings = self.comp_model.encode(orig_text, show_progress_bar = False)
-        comp_text_embeddings = self.comp_model.encode(comp_text, show_progress_bar = False)
+        if lang == 'en':
+            orig_text_embeddings = self.comp_model_en.encode(orig_text, show_progress_bar = False)
+            comp_text_embeddings = self.comp_model_en.encode(comp_text, show_progress_bar = False)
+        if lang == 'tl':
+            orig_text_embeddings = self.comp_model_tl.encode(orig_text, show_progress_bar = False)
+            comp_text_embeddings = self.comp_model_tl.encode(comp_text, show_progress_bar = False)
 
         if isinstance(orig_text, str) and isinstance(comp_text, list):
             sim_rating = cosine_similarity(

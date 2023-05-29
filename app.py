@@ -1,5 +1,5 @@
 from flask import Flask, render_template, jsonify, request
-from main import text_extractor, predict_headline, main2, main
+from main import text_extractor, predict_headline
 
 import numpy as np
 import cv2
@@ -24,7 +24,6 @@ def about():
 
 @app.route("/predict", methods=['POST'])
 def predict():
-    
     # check if image file is uploaded
     if 'imagefile' in request.files and request.files['imagefile'].filename != '':
         # gets image file name from request
@@ -34,22 +33,28 @@ def predict():
         imgbytes = np.fromstring(imagefile, np.uint8)
         # converts bytes to image
         img = cv2.imdecode(imgbytes, cv2.IMREAD_COLOR)
-        headline = text_extractor(img)
-        
-      
+        imageRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+        headline, image_pred = text_extractor(imageRGB)
+        result = predict_headline(headline, image_pred)
+        return jsonify({'result': result})
     else:
-        # Check if input text is entered
+        # check if input text is entered
+
         headline = request.form.get('headline-input')
-        # Check if both image and input text are empty
-        if not headline:
+        # check if both image and input text are empty
+        if headline:
+            result = predict_headline(headline)
+            return jsonify({'result': result})
+
+        else:
             return jsonify({'error': 'Please upload an image or enter text'})
-        
+
     # perform processing on the input
-    result = predict_headline(headline)
-    
+
+
     # outputs result in output_display div
-    return jsonify({'result': result})
-    
+
+
 @app.route("/submitreport", methods=['POST'])
 def submit_report():
     news_title = request.form.get('news-title')

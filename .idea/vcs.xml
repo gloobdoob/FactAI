@@ -3,5 +3,11 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$/.." vcs="Git" />
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/highdimensional-decision-boundary-plot" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/highdimensional-decision-boundary-plot/highdimensional-decision-boundary-plot" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/highdimensional-decision-boundary-plot/highdimensional-decision-boundary-plot/highdimensional-decision-boundary-plot" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/test purposes/highdimensional-decision-boundary-plot" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/test purposes/highdimensional-decision-boundary-plot/highdimensional-decision-boundary-plot" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/test purposes/highdimensional-decision-boundary-plot/highdimensional-decision-boundary-plot/highdimensional-decision-boundary-plot" vcs="Git" />
   </component>
 </project>

@@ -9,7 +9,7 @@ import os
 class ImageReader:
     def __init__(self):
 
-        self.reader = easyocr.Reader(['en', 'tl'], recog_network='english_g2', gpu=True)
+        self.reader = easyocr.Reader(['en', 'tl'], gpu=True)
 
     # Extracts text from the image using a library called easyocr
     def read_img(self, img):

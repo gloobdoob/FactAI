@@ -66,16 +66,16 @@ class GoogleScraper:
         #print("got text body")
         return ' '.join(full_text)
 
-    @timeout(120)
+    @timeout(60)
     def _browser_helper(self, r):
         #print('finding link')
         link = r.find('a', href=True)
         print('scraping link')
         self.br.open(link['href'])
         title = self.br.title()
-        body = self._get_site_body(link['href'])
+        #body = self._get_site_body(link['href'])
 
-        return link, title, body
+        return link, title
 
     def get_results(self, query):
 
@@ -93,12 +93,12 @@ class GoogleScraper:
         for r in result_div:
             # Checks if each element is present, else, raise exception
             try:
-                link, title, body = self._browser_helper(r)
+                link, title = self._browser_helper(r)
                 # Check to make sure everything is present before appending
                 if link != '' and title != '':
                     if title != 'Images' and title != 'Description' and title != None:
                         self.br.open(link['href'])
-                        titles_bodies_links.append((title, body, link['href']))
+                        titles_bodies_links.append((title, link['href']))
                         #print(link['href'], 'Appended')
 
 
