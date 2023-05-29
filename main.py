@@ -15,7 +15,7 @@ import joblib
 N_SEARCHES = 10
 
 os.environ['TOKENIZERS_PARALLELISM'] = 'true'  # or 'false'
-
+os.environ['KMP_DUPLICATE_LIB_OK']='True'
 
 
 

@@ -4,10 +4,11 @@ import time
 import math
 from retry import retry
 import re
+import config
 
 
-openai.organization = "org-O3v48p3zZiCojnlJwlnl1YHT"
-openai.api_key = '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'
+openai.organization = config.organization
+openai.api_key = config.api_key
 openai.Model.list()
 
 import string
