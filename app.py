@@ -5,6 +5,9 @@ import numpy as np
 import cv2
 import csv
 
+import time
+import os
+
 app = Flask(__name__)
 
 @app.route("/")
@@ -21,6 +24,7 @@ def about():
 
 @app.route("/predict", methods=['POST'])
 def predict():
+    
     # check if image file is uploaded
     if 'imagefile' in request.files and request.files['imagefile'].filename != '':
         # gets image file name from request
@@ -31,19 +35,21 @@ def predict():
         # converts bytes to image
         img = cv2.imdecode(imgbytes, cv2.IMREAD_COLOR)
         headline = text_extractor(img)
+        
+      
     else:
-        # check if input text is entered
+        # Check if input text is entered
         headline = request.form.get('headline-input')
-        # check if both image and input text are empty
+        # Check if both image and input text are empty
         if not headline:
             return jsonify({'error': 'Please upload an image or enter text'})
-
+        
     # perform processing on the input
     result = predict_headline(headline)
-
+    
     # outputs result in output_display div
     return jsonify({'result': result})
-
+    
 @app.route("/submitreport", methods=['POST'])
 def submit_report():
     news_title = request.form.get('news-title')

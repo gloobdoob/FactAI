@@ -1,7 +1,8 @@
 <!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <html lang="en">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Drag & Drop File Upload</title>
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
@@ -9,6 +10,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
   <!-- Stylesheet -->
   <link rel="stylesheet" href="/static/style.css" />
+  <!-- Icons -->
+  <link href='https://unpkg.com/css.gg@2.0.0/icons/css/info.css' rel='stylesheet'>
 </head>
 
 <body>
@@ -18,29 +21,36 @@
     <a href="/Report">Report</a>
     <a href="/About">About</a>
   </div>
-
+  
   <h1>Fact Check</h1>
   <div class="container">
     <div class="upload-section">
+      <div class="gg-info" id="gg-info" title="Please upload an image or enter text"></div>
       <form action="{{ url_for('predict') }}" method="post" enctype="multipart/form-data">
         <label for="upload-button">
           <i class="fa-solid fa-upload"></i>&nbsp; Choose Or Drop Photos
           <input type="file" accept="image/*" id="upload-button" name="imagefile" value="{{request.form.imagefile}}" />
+          
         </label>
+        
         <div id="error"></div>
         <div id="image-display"></div>
+        
+        
+
       </form>
     </div>
 
     <div class="headline-section">
       <input type="text" id="text-input" name="headline-input" class="input_box" placeholder="Enter your news headline here..." />
+      <div class="second-gg-info" id="second-gg-info" title="Please upload an image or enter text"></div>
     </div>
 
     <div class="button-section">
       <form action="{{ url_for('predict') }}" method="post" enctype="multipart/form-data">
         <input type="submit" class="button button_check" value="Check">
       </form>
-      <button class="button button_reset" type="button" onclick="clearcontent('image-display', 'output_display', 'text-input')">Reset</button>
+      <button class="button button_reset" type="button" onclick="clearcontent('image-display', 'output_display', 'text-input', 'error', '.gg-info','.second-gg-info')">Reset</button>
     </div>
   </div>
 
@@ -57,31 +67,55 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
   <script>
-    function clearcontent(elementID, outputID, inputID) {
+    function clearcontent(elementID, outputID, inputID, errorID) {
+      // Rest of the code to clear the content
       document.getElementById(elementID).innerHTML = "";
       document.getElementById(outputID).innerHTML = "";
       document.getElementById(inputID).value = "";
+
       // Remove the dropped image from the display
       var imageInput = document.getElementById("upload-button");
       imageInput.value = ""; // Clear the image input value
+
+      // Remove the red line from the upload section
+      var uploadSection = document.getElementsByClassName("upload-section")[0];
+      uploadSection.classList.remove(errorID);
+  
+
+      // Remove the red line from the headline section
+      var headlineSection = document.getElementsByClassName("headline-section")[0];
+      headlineSection.classList.remove(errorID);
+
+      // Remove the error icon
+      var alertSection = document.getElementsByClassName("gg-info")[0];
+      alertSection.style.display = 'none';
+      
+      // Remove the second error icon
+      var secondAlertSection = document.getElementsByClassName("second-gg-info")[0];
+      secondAlertSection.style.display = 'none';
+
+      // Hide the progress bar
+      var progressBar = document.querySelector('.progress-bar');
+      progressBar.style.display = 'none';
+
     }
   
     $(function() {
       $('form').on('submit', function(event) {
         event.preventDefault();
-  
+    
         var progressBar = document.querySelector('.progress-bar');
         var progress = document.querySelector('.progress');
         progress.style.width = '0%';
         progressBar.style.display = 'block'; // show the progress bar
-  
+    
         // Check if an image file is selected
         var fileInput = $('#upload-button')[0];
         var imageFile = fileInput.files[0];
-  
+    
         // Check if text input is provided
         var headline = $('#text-input').val().trim();
-  
+    
         if (imageFile) {
           // Perform image processing
           var formData = new FormData($('form')[0]);
@@ -112,42 +146,69 @@
               $('#output_display').text(response.result);
               progress.style.width = '0%'; // Reset the progress bar
               progressBar.style.display = 'none'; // Hide the progress bar after completion
+            },
+            complete: function() {
+              // Hide the .gg-info icon
+              $('.gg-info').css('display', 'none');
             }
           });
         } else if (headline) {
-        // Simulate progress for text processing
-        var fakeProgress = 0;
-        var intervalId = setInterval(function() {
-          fakeProgress += 10;
-          progress.style.width = fakeProgress + '%';
-          if (fakeProgress >= 100) {
-            clearInterval(intervalId);
-            // Perform processing on the input text
-            var formData = new FormData();
-            formData.append('headline-input', headline);
-            $.ajax({
-              type: 'POST',
-              url: '/predict',
-              data: formData,
-              contentType: false,
-              cache: false,
-              processData: false,
-              success: function(response) {
-                // Update output display
-                $('#output_display').text(response.result);
-                progress.style.width = '0%'; // Reset the progress bar
-                progressBar.style.display = 'none'; // Hide the progress bar after completion
-              }
-            });
-          }
-        }, 500);
+          // Simulate progress for text processing
+          var fakeProgress = 0;
+          var intervalId = setInterval(function() {
+            fakeProgress += 10;
+            progress.style.width = fakeProgress + '%';
+            if (fakeProgress >= 100) {
+              clearInterval(intervalId);
+              // Perform processing on the input text
+              var formData = new FormData();
+              formData.append('headline-input', headline);
+               $.ajax({
+                type: 'POST',
+                url: '/predict',
+                data: formData,
+                contentType: false,
+                cache: false,
+                processData: false,
+                success: function(response) {
+                  // Update output display
+                  $('#output_display').text(response.result);
+                  progress.style.width = '0%'; // Reset the progress bar
+                  progressBar.style.display = 'none'; // Hide the progress bar after completion
+                },
+                complete: function() {
+                  // Hide the .gg-info icon
+                  $('.gg-info').css('display', 'none');
+                  
+                }
+
+              });
+            }
+          }, 500);
+          
         } else {
           // No input provided, display an error message
-          $('#output_display').text('Please upload an image or enter text');
+          //$('#output_display').text('Please upload an image or enter text');
           progressBar.style.display = 'none'; // Hide the progress bar if there's an error
+    
+          // Highlight the upload section
+          $('.upload-section').addClass('error');
+          $('.headline-section').addClass('error');
+          $('.gg-info').css('display', 'block'); // Show the .gg-info icon
+          $('.second-gg-info').css('display', 'block'); // Show the .second-gg-info icon
         }
       });
+    
+      // Check if an image file is selected when the input changes
+      $(document).ready(function() {
+        // Hide the .gg-info icon on page load
+        $('.gg-info').css('display', 'none');
+        $('.second-gg-info').css('display', 'none');
+      });
+      
     });
+    
+    
   </script>
 </body>
 </html>

@@ -1,3 +1,9 @@
+/* This hides both vertical and horizontal scrollbar */
+body {
+  overflow-y: auto; /* Hide vertical scrollbar */
+  overflow-x: auto; /* Hide horizontal scrollbar */
+}
+
 /* top navigation */
 .topnav {
   overflow: hidden;
@@ -32,7 +38,7 @@
 h1 {
   font-size: 55px;
   text-align: center;
-  margin: 0;
+  margin-top: -40px;
 }
   
 h3 {
@@ -44,10 +50,12 @@ h3 {
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   margin: 0 auto;
-  width: 50%;
+  width: 70%; /* Adjusted this to give more space for the team-containers horizontally */
+  max-height: auto; /* Added  this line to set a proper height to the webpage without using the vertical scroll function */
+  margin: 55px auto 0;
   background-color: #f2f2f2;
   padding: 10px;
   border-radius: 10px;
@@ -90,7 +98,7 @@ body {
 .team-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: center; 
   align-items: center;
   max-width: 1200px;
   margin-top: 40px;
@@ -100,7 +108,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 70px; /* Add more margin for more space */
+  
+  margin: 55px auto 0;
   max-width: 200px;
   text-align: center;
 }
@@ -117,12 +126,14 @@ body {
   font-size: 24px;
   margin: 0;
   color: #333;
+  white-space: nowrap;  /* Added this line so the h4 tag or our names would be one line */
 }
 
-.team-title {
+ .team-title  {
   font-size: 18px;
   margin: 0;
   color: #666;
+  line-height: 50px;
 }
 
 .center-dialog {

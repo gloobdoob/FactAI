@@ -6,6 +6,9 @@ from google_scraper import GoogleScraper
 from knapsack_checker import KnapsackChecker
 import warnings
 import logging
+
+
+
 os.environ['TOKENIZERS_PARALLELISM'] = 'true'  # or 'false'
 
 class SearchResultException(Exception):
@@ -78,21 +81,21 @@ def predict_headline(text):
     logging.disable(logging.CRITICAL)
     try:
 
-        if prediction == 'Real':
+        if prediction =='Real':
             return f'''We predict that this is a, '{prediction}' article.
-                      These are the articles from credible sites that we ran across when searching for this image: 
+                      These are the articles from credible sites that we ran across when searching for this image:\n 
                      {sites}'''
 
 
         elif prediction == 'Risky' and sites:
             return f'''We predict that this is a, '{prediction}' article. Please do more research regarding this topic
-                       These are the articles from credible sites that we ran across when searching for this image
+                       These are the articles from credible sites that we ran across when searching for this image\n
                        {sites}'''
 
         elif prediction == 'Risky' and not sites:
             return f'''We predict that this is a ,'{prediction}' article. Please do more research regarding this topic
                        There were no credible websites that appeared while searching for this image
-                       These are the risky websites that came up when searching: 
+                       These are the risky websites that came up when searching:\n
                        {urls}'''
 
     except Exception as e:
@@ -176,9 +179,11 @@ def main2(input_text):
 
     logger = logging.getLogger()
     logging.disable(logging.CRITICAL)
-
+    
+    
+    
     try:
-
+        
         if prediction == 'Real':
             return f'''We predict that this is', {prediction}.
                       These are the articles from credible sites that we ran across when searching for this image: 
