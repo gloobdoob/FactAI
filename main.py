@@ -218,13 +218,13 @@ def predict_headline(text, img_pred=None):
             prediction = 'RELIABLE' if result_round == 1 or result_round == 1.0 else 'UNRELIABLE'
             if prediction == 'RELIABLE':
                 print(prediction)
-                return f'''We predict that this is a, '{prediction}' article.
+                return f'''We predict that this is a '{prediction}' article with {result_proba} confidence.
                       These are the articles from credible sites that we ran across when searching for this image: 
                      {search_links}'''
 
             elif prediction == 'UNRELIABLE':
                 print(prediction)
-                return f'''We predict that this is an, '{prediction}' article. Please do more research regarding this topic
+                return f'''We predict that this is an '{prediction}' article with {result_proba} confidence. Please do more research regarding this topic
                            These are the articles from credible sites that we ran across when searching for this image
                            {search_links}'''
 
