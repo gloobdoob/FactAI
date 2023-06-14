@@ -13,7 +13,8 @@ class ImagePredictor:
         self.IMAGENET_STD = 0.229, 0.224, 0.225
         self.IMG_SIZE = img_size
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-        self.model = torch.jit.load('classifiers/image_classifier/YOLOV5-image-classifier.pth').eval().to(self.device)
+
+        self.model = torch.hub.load('ultralytics/yolov5', 'custom', 'classifiers/image_classifier/static/best.pt', force_reload=True)
 
     def classify_transforms(self):
         return T.Compose([T.ToTensor(), T.Resize(self.IMG_SIZE), T.CenterCrop(self.IMG_SIZE),

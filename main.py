@@ -4,7 +4,7 @@ from site_predictor import SitePredictor
 from similarity_checker import SimilarityChecker
 from image_predictor import ImagePredictor
 from headline_predictor import HeadlinePredictor
-from lingua import Language, LanguageDetectorBuilder
+import lingua
 from transformers import pipeline
 from textcorrector_v2 import TextCorrectorV2
 import numpy as np
@@ -12,7 +12,7 @@ import logging
 import os
 import joblib
 
-N_SEARCHES = 10
+N_SEARCHES = 3
 
 os.environ['TOKENIZERS_PARALLELISM'] = 'true'  # or 'false'
 os.environ['KMP_DUPLICATE_LIB_OK']='True'
@@ -112,10 +112,12 @@ def text_extractor(img):
     text = ocr.read_img(img)
     print("extracted:", text)
     image_pred = ip.predict_img(img)['real']
+    print('image predicted')
     return text, image_pred
 
 
 def predict_headline(text, img_pred=None):
+    print('predicting headline')
     logger = logging.getLogger()
     logging.disable(logging.CRITICAL)
 
@@ -123,8 +125,10 @@ def predict_headline(text, img_pred=None):
     hp = HeadlinePredictor()
     tcV2 = TextCorrectorV2()
     sc = SimilarityChecker()
-    languages = [Language.ENGLISH, Language.TAGALOG]
-    lang_detector = LanguageDetectorBuilder.from_languages(*languages).build()
+    languages = [lingua.Language.ENGLISH, lingua.Language.TAGALOG]
+    lang_detector = lingua.LanguageDetectorBuilder.from_languages(*languages).build()
+
+    print('classes loaded')
 
     query = text
 
@@ -147,6 +151,7 @@ def predict_headline(text, img_pred=None):
     print('query:', corrected_query)
     #if results come up empty, either due to unreadable text or a special character interfering with google's search algorithm
     full_res = retry_results(corrected_query, tcV2)
+    print('data gathered from sites')
     if full_res:
         s_results, corrected_query = full_res
         search_title = [title[0] for title in s_results]

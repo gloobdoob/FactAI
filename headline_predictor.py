@@ -4,7 +4,7 @@ from lingua import Language, LanguageDetectorBuilder
 
 class HeadlinePredictor:
     def __init__(self):
-        self.en_model = pipeline(model="gloobdoob/english-headline-classifier-fake-news", top_k=None)
+        self.en_model = pipeline(model="gloobdoob/english-headline-classifier-fake-news", top_k=None, use_auth_token=True)
         self.tl_model = pipeline(model="gloobdoob/tagalog-fake-news-headline-classifier-distilbert", top_k=None)
         self.languages = [Language.ENGLISH, Language.TAGALOG]
         self.detector = LanguageDetectorBuilder.from_languages(*self.languages).build()
