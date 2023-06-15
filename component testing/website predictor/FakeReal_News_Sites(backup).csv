@@ -1,0 +1,200 @@
+,Domain,Page rank integer,Page rank decimal,Site Rank,Domain registrar,Postal code,Country of origin,Harmless,Malicious,Suspicious,Undetected,Timeout,No. of Local links,No. of Outbound links,Total links,Links to fake news site?,Wordpress?,Site Rating
+0,actionnews3.com,3,2.82,7390112,"GoDaddy.com, LLC",85284,US,86,0,0,10,0,16,1,17,FALSE,TRUE,Fake
+1,abcnews-us.com,3,2.89,6579810,NamePal.com #8009 Inc.,32256,US,86,0,0,10,0,0,1,1,FALSE,FALSE,Fake
+2,21stcenturywire.com,5,4.57,66742,"GoDaddy.com, LLC",85284,US,83,0,0,13,0,183,36,219,FALSE,TRUE,Fake
+3,100percentfedup.com,4,4.15,778723,"GoDaddy.com, LLC",85284,US,84,1,0,11,0,49,8,57,FALSE,TRUE,Fake
+4,abcnews.com,5,4.78,32787,"CSC CORPORATE DOMAINS, INC.",10023-6298,US,83,0,0,13,0,0,144,144,FALSE,FALSE,Fake
+5,activistpost.com,5,4.79,31957,"GoDaddy.com, LLC",85284,US,83,0,0,13,0,41,11,52,FALSE,TRUE,Fake
+6,breakingnews365.net,3,3.23,3948929,GANDI SAS,75013,FR,86,0,0,10,0,49,2,51,FALSE,FALSE,Fake
+7,breakingnews247.net,3,3.14,4573046,GANDI SAS,75013,FR,86,0,0,10,0,49,2,51,FALSE,FALSE,Fake
+8,beforeitsnews.com,5,4.71,40489,"GoDaddy.com, LLC",85284,US,82,1,0,13,0,94,5,99,FALSE,FALSE,Fake
+9,chronicle.su,4,4.07,1211140,RUCENTER-SU,,,84,0,0,12,0,21,20,41,FALSE,TRUE,Fake
+10,civictribune.com,3,3.45,2918346,"Name.com, Inc.",80201,US,85,0,0,11,0,24,1,25,FALSE,TRUE,Fake
+11,clickhole.com,5,4.67,45328,"TUCOWS, INC.",M6K 3M1,CA,83,0,0,13,0,34,5,39,FALSE,FALSE,Fake
+12,coasttocoastam.com,5,4.53,76629,"MarkMonitor, Inc.",,US,84,0,0,12,0,53,19,72,FALSE,TRUE,Fake
+13,consciouslifenews.com,4,4.27,277396,"NameCheap, Inc.",,,84,0,0,12,0,181,11,192,FALSE,TRUE,Fake
+14,creambmp.com,3,3.38,3152375,"GoDaddy.com, LLC",85284,US,82,1,0,13,0,66,0,66,FALSE,TRUE,Fake
+15,dailybuzzlive.com,4,3.94,1372349,"GoDaddy.com, LLC",85284,US,84,0,0,12,0,18,14,32,FALSE,TRUE,Fake
+16,dcclothesline.com,4,4.03,1271577,"Launchpad, Inc. (HostGator)",65708,US,86,0,0,10,0,39,4,43,FALSE,TRUE,Fake
+17,disclose.tv,5,4.65,49911,,,,86,0,0,10,0,0,0,0,FALSE,TRUE,Fake
+18,duffleblog.com,1,0.68,115417002,ABOVE.COM PTY LTD.,,HK,86,0,0,10,0,0,0,0,FALSE,FALSE,Fake
+19,embols.com,2,2.46,12624737,DropCatch.com 1111 LLC,102,BG,85,1,0,10,0,0,0,0,FALSE,FALSE,Fake
+20,endingthefed.com,4,3.76,1738520,DYNADOT LLC,REDACTED FOR PRIVACY,REDACTED FOR PRIVACY,84,1,0,11,0,0,0,0,FALSE,FALSE,Fake
+21,enduringvision.com,3,2.95,5918551,NAMECHEAP INC,101,IS,85,0,0,11,0,59,6,65,FALSE,FALSE,Fake
+22,fprnradio.com,3,2.9,6379580,"NameSilo, LLC",85016,US,86,1,0,9,0,69,6,75,FALSE,TRUE,Fake
+23,geoengineeringwatch.org,4,4.4,128517,"GoDaddy.com, LLC",REDACTED FOR PRIVACY,US,83,0,0,13,0,238,25,263,FALSE,TRUE,Fake
+24,globalresearch.ca,5,5.19,15265,easyDNS Technologies Inc.,,,83,0,0,13,0,221,26,247,FALSE,TRUE,Fake
+25,humansarefree.com,4,4.15,828515,NAMECHEAP INC,101,IS,83,0,0,13,0,6,227,233,FALSE,TRUE,Fake
+26,ifyouonlynews.com,4,4.22,428495,"GoDaddy.com, LLC",85284,US,87,0,0,9,0,0,6,6,FALSE,FALSE,Fake
+27,infowars.com,5,5.12,16648,Epik Holdings Inc,98004,US,86,0,0,10,0,45,12,57,FALSE,FALSE,Fake
+28,inquisitr.com,5,5.32,7164,NAMECHEAP INC,101,IS,84,0,0,12,0,62,3,65,FALSE,FALSE,Fake
+29,landoverbaptist.org,4,4.08,1203085,FastDomain Inc.,REDACTED FOR PRIVACY,US,83,0,0,13,0,41,16,57,FALSE,FALSE,Fake
+30,lewrockwell.com,5,5.02,19453,"GoDaddy.com, LLC",85284,US,83,0,0,13,0,53,4,57,FALSE,TRUE,Fake
+31,libertytalk.fm,3,3.39,3131883,Instra Corporation Pty Ltd,,,85,1,0,10,0,22,10,32,TRUE,TRUE,Fake
+32,mediamass.net,3,3.33,3382625,GANDI SAS,REDACTED FOR PRIVACY,CN,83,0,0,13,0,14,1,15,FALSE,FALSE,Fake
+33,nationalreport.net,4,4.22,434368,"GoDaddy.com, LLC",85284,US,83,0,0,13,0,61,7,68,FALSE,TRUE,Fake
+34,naturalnews.com,6,5.65,4635,Epik Holdings Inc,98004,US,83,0,0,13,0,79,108,187,FALSE,FALSE,Fake
+35,news-hound.com,2,1.97,30620586,"GoDaddy.com, LLC",85284,US,86,0,0,10,0,0,12,12,FALSE,FALSE,Fake
+36,newsbiscuit.com,4,3.97,1327544,"TUCOWS, INC.",REDACTED FOR PRIVACY,GB,84,0,0,12,0,45,24,69,FALSE,FALSE,Fake
+37,newswire-24.com,3,3.12,4647444,"GoDaddy.com, LLC",85284,US,85,1,0,10,0,78,15,93,FALSE,TRUE,Fake
+38,nodisinfo.com,4,3.91,1412104,"Network Solutions, LLC",32256,US,86,0,0,10,0,0,0,0,FALSE,TRUE,Fake
+39,nowtheendbegins.com,4,4.29,231617,"GoDaddy.com, LLC",85284,US,86,0,0,10,0,253,7,260,FALSE,TRUE,Fake
+40,prisonplanet.com,4,4.47,94558,Epik Holdings Inc,98004,US,84,0,0,12,0,0,10,10,FALSE,FALSE,Fake
+41,realfarmacy.com,4,4.05,1247175,NAMECHEAP INC,101,IS,83,0,0,13,0,78,214,292,FALSE,TRUE,Fake
+42,realnewsrightnow.com,4,3.79,1699263,"TUCOWS, INC.",REDACTED FOR PRIVACY,US,85,1,1,9,0,50,8,58,FALSE,TRUE,Fake
+43,rilenews.com,2,2.27,17732619,Domainplace LLC,49418,US,85,0,0,11,0,0,0,0,FALSE,FALSE,Fake
+44,realfarmacy.com,4,4.05,1247175,NAMECHEAP INC,101,IS,83,0,0,13,0,78,214,292,FALSE,TRUE,Fake
+45,realnewsrightnow.com,4,3.79,1699263,"TUCOWS, INC.",REDACTED FOR PRIVACY,US,85,1,1,9,0,50,8,58,FALSE,TRUE,Fake
+46,rilenews.com,2,2.27,17732619,Domainplace LLC,49418,US,85,0,0,11,0,0,0,0,FALSE,FALSE,Fake
+47,thenewsnerd.com,4,3.8,1689502,DropCatch.com 361 LLC,22320,RS,85,1,0,10,0,17,0,17,FALSE,TRUE,Fake
+48,therundownlive.com,4,3.76,1743476,IONOS SE,REDACTED FOR PRIVACY,US,83,1,0,12,0,2,71,73,FALSE,TRUE,Fake
+49,truthfrequencyradio.com,4,4.17,716098,"GoDaddy.com, LLC",85284,US,86,0,0,10,0,0,57,57,FALSE,TRUE,Fake
+50,twitchy.com,5,4.77,33523,"CSC CORPORATE DOMAINS, INC.",93012,US,85,0,0,11,0,85,12,97,FALSE,TRUE,Fake
+51,veteranstoday.com,4,4.43,114606,"GoDaddy.com, LLC",85284,US,84,0,0,12,0,142,17,159,FALSE,TRUE,Fake
+52,worldtruth.tv,4,4.05,1249242,,,,83,0,0,13,0,71,13,84,FALSE,TRUE,Fake
+53,bostonleader.com,3,3.49,2737304,"Cloudflare, Inc.",DATA REDACTED,US,86,1,0,9,0,89,20,109,FALSE,TRUE,Fake
+54,cap-news.com,3,3.23,3932508,"GoDaddy.com, LLC",85284,US,78,4,0,14,0,10,9,19,FALSE,FALSE,Fake
+55,channel-7-news.com,2,1.71,52220671,ABOVE.COM PTY LTD.,,HK,85,1,0,10,0,0,0,0,FALSE,FALSE,Fake
+56,civictribune.com,3,3.45,2918346,"Name.com, Inc.",80201,US,85,0,0,11,0,24,1,25,FALSE,TRUE,Fake
+57,conservativedailypost.com,4,3.99,1303578,NAMECHEAP INC,101,IS,83,0,0,13,0,75,2,77,FALSE,TRUE,Fake
+58,dailybuzzlive.com,4,3.94,1372349,"GoDaddy.com, LLC",85284,US,84,0,0,12,0,18,14,32,FALSE,TRUE,Fake
+59,dailyheadlines.com,3,3.48,2755349,NAMECHEAP INC,101,IS,85,1,0,10,0,36,0,36,FALSE,TRUE,Fake
+60,dailyheadlines.net,4,3.65,2084718,NAMECHEAP INC,101,IS,84,0,0,12,0,31,0,31,FALSE,TRUE,Fake
+61,deadlyclear.wordpress.com,4,4.14,842345,"MarkMonitor, Inc.",,US,86,0,0,10,0,2,123,125,FALSE,TRUE,Fake
+62,departed.co,3,3.27,3751899,Dynadot LLC,REDACTED FOR PRIVACY,US,85,1,0,10,0,37,0,37,FALSE,FALSE,Fake
+63,enduringvision.com,3,2.95,5918551,NAMECHEAP INC,101,IS,85,0,0,11,0,59,6,65,FALSE,FALSE,Fake
+64,freedomdaily.com,4,3.69,1919397,"NameSilo, LLC",85016,US,85,0,0,11,0,22,0,22,FALSE,TRUE,Fake
+65,goneleft.com,2,2.41,13668070,Key-Systems GmbH,22314,US,85,1,0,10,0,0,0,0,FALSE,FALSE,Fake
+66,immediatesafety.org,3,2.51,11567153,Epik Inc.,REDACTED FOR PRIVACY,US,85,1,0,10,0,128,8,136,FALSE,TRUE,Fake
+67,infostormer.com,4,3.64,2095842,"Register.com, Inc.",32256,US,87,0,0,9,0,57,1,58,FALSE,FALSE,Fake
+68,investmentwatchblog.com,4,4.42,117923,IONOS SE,REDACTED FOR PRIVACY,US,84,0,0,12,0,38,3,41,FALSE,FALSE,Fake
+69,itmakessenseblog.com,4,4.15,817135,"GoDaddy.com, LLC",85284,US,86,0,0,10,0,21,40,61,FALSE,TRUE,Fake
+70,iwanttoexplore.com,1,0.99,93199992,"Hostinger, UAB",248001,IN,86,0,0,10,0,0,0,0,FALSE,FALSE,Fake
+71,konkonsagh.biz,1,0.95,95867633,Key-Systems GmbH,REDACTED FOR PRIVACY,,86,0,0,10,0,0,0,0,FALSE,FALSE,Fake
+72,krbcnews.com,3,3.18,4225093,NAMECHEAP INC,101,IS,85,1,0,10,0,16,1,17,FALSE,FALSE,Fake
+73,ky12news.com,3,2.67,9183206,Internet Domain Service BS Corp.,,BS,87,0,0,9,0,12,21,33,FALSE,TRUE,Fake
+74,learnprogress.org,4,3.56,2382561,"GoDaddy.com, LLC",REDACTED FOR PRIVACY,US,85,1,0,10,0,0,0,0,FALSE,FALSE,Fake
+75,libertyalliance.com,3,3.23,3908639,"GoDaddy.com, LLC",85284,US,85,1,0,10,0,7,2,9,FALSE,FALSE,Fake
+76,mediamass.net,3,3.33,3382625,GANDI SAS,REDACTED FOR PRIVACY,CN,83,0,0,13,0,14,1,15,FALSE,FALSE,Fake
+77,natives-today.com,2,2.16,21449936,PearlNamingService.com LLC,49418,US,85,1,0,10,0,0,0,0,FALSE,FALSE,Fake
+78,nephef.com,0,0,,Key-Systems GmbH,22314,US,85,1,0,10,0,0,0,0,FALSE,FALSE,Fake
+79,news4ktla.com,3,3.43,2977569,"GoDaddy.com, LLC",85284,US,85,1,0,10,0,32,2,34,FALSE,TRUE,Fake
+80,newsbreakshere.com,3,2.63,9648714,,,,85,1,0,10,0,0,0,0,FALSE,FALSE,Fake
+81,newsbysquad.com,0,0,,"Domain Esta Aqui, LLC",Statutory Masking Enabled,GI,85,1,0,10,0,0,0,0,FALSE,FALSE,Fake
+82,newslo.com,4,3.8,1691303,"GoDaddy.com, LLC",85284,US,81,1,0,14,0,93,7,100,FALSE,TRUE,Fake
+83,newswatch28.com,4,3.69,1920162,NAMECHEAP INC,101,IS,85,0,0,11,0,19,6,25,FALSE,TRUE,Fake
+84,newswatch33.com,4,3.5,2714385,DropCatch.com 1174 LLC,102,BG,85,1,0,10,0,74,2,76,FALSE,TRUE,Fake
+85,notallowedto.com,4,3.64,2094085,NAMECHEAP INC,101,IS,83,0,0,13,0,26,0,26,FALSE,FALSE,Fake
+86,now8news.com,4,3.57,2375611,"GoDaddy.com, LLC",85284,US,83,0,0,13,0,18,1,19,FALSE,TRUE,Fake
+87,onepoliticalplaza.com,3,3.03,5406523,"ENOM, INC.",REDACTED FOR PRIVACY,US,86,0,0,10,0,38,0,38,FALSE,FALSE,Fake
+88,politicsusanews.com,3,2.65,9394582,Domainarmada.com LLC,Statutory Masking Enabled,RO,85,0,0,11,0,0,0,0,FALSE,FALSE,Fake
+89,prntly.com,4,3.57,2350140,Epik Holdings Inc,98004,US,84,0,0,12,0,63,9,72,FALSE,TRUE,Fake
+90,proamericanews.com,2,2.21,19646896,"GoDaddy.com, LLC",85284,US,85,0,0,11,0,0,0,0,FALSE,FALSE,Fake
+91,react365.com,3,3.35,3302463,"TurnCommerce, Inc. DBA NameBright.com",Redacted for GDPR privacy,FR,85,1,0,10,0,49,2,51,FALSE,FALSE,Fake
+92,readconservatives.news,3,2.6,10056247,,,,85,1,0,10,0,0,0,0,FALSE,FALSE,Fake
+93,realnewsrightnow.com,4,3.79,1699263,"TUCOWS, INC.",REDACTED FOR PRIVACY,US,85,1,1,9,0,50,8,58,FALSE,TRUE,Fake
+94,redcountry.us,3,2.54,10910748,"SAV.COM, LLC",926,,78,4,1,13,0,0,0,0,FALSE,FALSE,Fake
+95,rogue-nation3.com,3,2.5,11955491,"GoDaddy.com, LLC",85284,US,85,1,0,10,0,233,3,236,FALSE,FALSE,Fake
+96,sputniknews.com,6,5.55,5072,"Regional Network Information Center, JSC dba RU-CENTER",119021,RU,84,0,0,12,0,68,10,78,FALSE,FALSE,Fake
+97,stormcloudsgathering.com,4,3.53,2523407,NAMECHEAP INC,101,IS,82,0,0,14,0,11,17,28,FALSE,TRUE,Fake
+98,tdtalliance.com,3,3,5585826,NAMECHEAP INC,101,IS,86,0,0,10,0,49,22,71,FALSE,TRUE,Fake
+99,teaparty.org,5,4.61,56899,"Register.com, Inc.",FALSE,US,83,0,0,13,0,59,3,62,FALSE,TRUE,Fake
+100,theracketreport.com,3,3.25,3854009,"GoDaddy.com, LLC",85284,US,81,1,0,14,0,72,11,83,FALSE,TRUE,Fake
+101,thereporterz.com,2,2.12,22851113,Key-Systems GmbH,REDACTED FOR PRIVACY,NL,85,1,0,10,0,106,0,106,FALSE,FALSE,Fake
+102,theusa-news.com,2,2.41,13568158,"GoDaddy.com, LLC",85284,US,85,1,0,10,0,0,0,0,FALSE,FALSE,Fake
+103,times.com.mx,2,2.43,13272060,InterNetX GmbH,,,85,1,0,10,0,0,0,0,FALSE,FALSE,Fake
+104,tmzworldnews.com,3,3.19,4167516,"GoDaddy.com, LLC",85284,US,85,1,0,10,0,113,0,113,FALSE,TRUE,Fake
+105,truetrumpers.com,3,2.89,6565272,PDR Ltd. d/b/a PublicDomainRegistry.com,1803,US,85,1,0,10,0,0,0,0,FALSE,FALSE,Fake
+106,usadailyinfo.com,3,2.9,6344809,"NETWORK SOLUTIONS, LLC.",32256,US,85,1,0,10,0,0,0,0,FALSE,FALSE,Fake
+107,usadailypolitics.com,3,3.32,3461197,Key-Systems GmbH,22314,US,85,1,0,10,0,0,0,0,FALSE,FALSE,Fake
+108,usadosenews.com,2,2.21,19647496,"Sssasss, Incorporated",Statutory Masking Enabled,GI,85,1,0,10,0,0,0,0,FALSE,FALSE,Fake
+109,usafirstinformation.com,2,2.21,19551115,ABOVE.COM PTY LTD.,,US,87,0,0,9,0,0,1,1,FALSE,FALSE,Fake
+110,usanewspolitics.com,2,1.58,59498883,"NameCheap, Inc.",,,84,1,0,11,0,6,2,8,FALSE,TRUE,Fake
+111,usanewstoday.com,3,2.59,10278071,THE NAME IT CORPORATION DBA NAMESERVICES.NET,49088,US,83,1,0,12,0,1,3,4,FALSE,FALSE,Fake
+112,usapolitics24hrs.com,2,2.44,12970242,"GoDaddy.com, LLC",85284,US,85,1,0,10,0,0,0,0,FALSE,FALSE,Fake
+113,usasupreme.com,4,3.99,1305242,"GoDaddy.com, LLC",85284,US,85,0,0,11,0,87,3,90,FALSE,FALSE,Fake
+114,usatoday.com.co,4,3.75,1765395,Communigal Communication Ltd,REDACTED FOR PRIVACY,FALSE,83,1,0,12,0,0,0,0,FALSE,FALSE,Fake
+115,usawatchdog.com,4,4.08,1192760,"GoDaddy.com, LLC",85284,US,83,0,0,13,0,68,11,79,FALSE,FALSE,Fake
+116,usconservativetoday.com,2,2.3,16500116,ABOVE.COM PTY LTD.,,HK,85,1,0,10,0,0,0,0,FALSE,FALSE,Fake
+117,ushealthyadvisor.com,3,2.77,7807307,Drop Catch Mining LLC,Statutory Masking Enabled,GI,85,1,0,10,0,0,0,0,FALSE,FALSE,Fake
+118,usherald.com,4,3.6,2210462,"GoDaddy.com, LLC",85284,US,86,0,0,10,0,6,7,13,FALSE,FALSE,Fake
+119,usinfonews.com,4,4.14,1022863,Key-Systems GmbH,22314,US,85,0,0,11,0,0,0,0,FALSE,FALSE,Fake
+120,vigilantcitizen.com,4,4.32,184339,FastDomain Inc.,32256,US,83,0,0,13,0,86,11,97,FALSE,TRUE,Fake
+121,viralliberty.com,3,3.21,4036601,DropCatch.com 1340 LLC,102,BG,85,1,0,10,0,0,0,0,FALSE,FALSE,Fake
+122,voxtribune.com,2,1.65,55005554,ABOVE.COM PTY LTD.,,HK,85,1,0,10,0,0,0,0,FALSE,FALSE,Fake
+123,weeklyworldnews.com,5,4.51,82081,"Network Solutions, LLC",10016-7419,US,83,0,0,13,0,86,9,95,FALSE,TRUE,Fake
+124,yesimright.com,4,3.55,2453636,"GoDaddy.com, LLC",85284,US,86,1,0,9,0,25,3,28,FALSE,TRUE,Fake
+125,beaconjournal.com,5,4.85,27420,"GoDaddy Corporate Domains, LLC",,US,82,0,0,14,0,35,5,40,FALSE,FALSE,Real
+126,amny.com,5,5.02,19305,"GoDaddy.com, LLC",85284,US,84,0,0,12,0,96,27,123,FALSE,TRUE,Real
+127,amarillo.com,5,4.64,50758,"GoDaddy Corporate Domains, LLC",,US,82,1,0,13,0,36,3,39,FALSE,FALSE,Real
+128,arkansasonline.com,5,4.93,23121,"Amazon Registrar, Inc.",98108-1226,US,83,0,0,13,0,166,20,186,FALSE,FALSE,Real
+129,ajc.com,6,5.63,4692,"CSC CORPORATE DOMAINS, INC.",30328,US,84,0,0,12,0,193,17,210,FALSE,FALSE,Real
+130,baltimoresun.com,6,5.78,2496,"GoDaddy Corporate Domains, LLC",60654,US,84,0,0,12,0,194,26,220,FALSE,FALSE,Real
+131,berkshireeagle.com,5,4.88,25363,"CSC CORPORATE DOMAINS, INC.",1201,US,86,0,0,10,0,165,42,207,FALSE,FALSE,Real
+132,bismarcktribune.com,5,4.84,28153,"TUCOWS, INC.",REDACTED FOR PRIVACY,US,86,0,0,10,0,185,10,195,FALSE,FALSE,Real
+133,heraldcourier.com,5,4.54,73833,"TUCOWS, INC.",REDACTED FOR PRIVACY,US,86,0,0,10,0,174,9,183,FALSE,FALSE,Real
+134,brooklyneagle.com,5,4.7,41143,"GoDaddy.com, LLC",85284,US,83,0,0,13,0,161,17,178,FALSE,TRUE,Real
+135,buffalonews.com,5,5.37,6579,"GoDaddy.com, LLC",85284,US,84,0,0,12,0,175,15,190,FALSE,FALSE,Real
+136,chicago.suntimes.com,5,5.42,6076,"Network Solutions, LLC",60607-2184,US,82,0,0,14,0,161,22,183,FALSE,FALSE,Real
+137,chicagotribune.com,6,6.14,771,"GoDaddy Corporate Domains, LLC",60654,US,84,0,0,12,0,215,24,239,FALSE,FALSE,Real
+138,csmonitor.com,6,5.82,2154,NOM-IQ Ltd dba Com Laude,02115-3012,US,84,0,0,12,0,125,8,133,FALSE,FALSE,Real
+139,commercialappeal.com,5,5.04,18677,"GoDaddy Corporate Domains, LLC",,US,84,0,0,12,0,40,6,46,FALSE,FALSE,Real
+140,courier-journal.com,5,5.36,6680,"GoDaddy Corporate Domains, LLC",,US,83,0,0,13,0,42,6,48,FALSE,FALSE,Real
+141,tdn.com,5,4.67,45840,"TUCOWS, INC.",REDACTED FOR PRIVACY,US,86,0,0,10,0,174,7,181,FALSE,FALSE,Real
+142,dallasnews.com,5,5.47,5629,"Network Solutions, LLC",75201,US,84,0,0,12,0,234,12,246,FALSE,FALSE,Real
+143,denverpost.com,6,5.76,2713,"CSC CORPORATE DOMAINS, INC.",80202,US,83,0,0,13,0,184,22,206,FALSE,TRUE,Real
+144,desmoinesregister.com,5,5.3,7530,"GoDaddy Corporate Domains, LLC",,US,83,0,0,13,0,42,7,49,FALSE,FALSE,Real
+145,deseret.com,5,5.21,14867,https://www.101domain.com/,84101,US,86,0,0,10,0,143,11,154,FALSE,FALSE,Real
+146,freep.com,6,5.57,4981,"GoDaddy Corporate Domains, LLC",,US,84,0,0,12,0,37,6,43,FALSE,FALSE,Real
+147,detroitnews.com,5,5.46,5700,"Network Solutions, LLC",32256,US,85,0,0,11,0,33,7,40,FALSE,FALSE,Real
+148,eagletribune.com,5,4.64,50566,"GoDaddy.com, LLC",85284,US,86,0,0,10,0,160,25,185,FALSE,FALSE,Real
+149,eastbaytimes.com,5,5.05,18461,"CSC CORPORATE DOMAINS, INC.",80202,US,83,0,0,13,0,145,32,177,FALSE,TRUE,Real
+150,gazette.com,5,5.25,14324,"GoDaddy.com, LLC",85284,US,83,0,0,13,0,262,18,280,FALSE,FALSE,Real
+151,grandforksherald.com,5,4.7,41638,"GoDaddy.com, LLC",85284,US,86,0,0,10,0,151,15,166,FALSE,FALSE,Real
+152,theguardian.com,8,7.51,73,"GoDaddy.com, LLC",85284,US,84,0,0,12,0,218,11,229,FALSE,FALSE,Real
+153,courant.com,5,5.42,6006,"GoDaddy Corporate Domains, LLC",60654,US,83,0,0,13,0,211,23,234,FALSE,FALSE,Real
+154,hutchnews.com,4,4.36,151426,"GoDaddy Corporate Domains, LLC",,US,86,0,0,10,0,25,15,40,FALSE,FALSE,Real
+155,indystar.com,5,5.41,6110,"GoDaddy Corporate Domains, LLC",,US,85,0,0,11,0,36,10,46,FALSE,FALSE,Real
+156,journalstar.com,5,5.34,6930,"TUCOWS, INC.",REDACTED FOR PRIVACY,US,82,0,0,14,0,187,11,198,FALSE,FALSE,Real
+157,latimes.com,7,6.81,214,"MarkMonitor, Inc.",,US,84,0,0,12,0,210,9,219,FALSE,FALSE,Real
+158,lufkindailynews.com,4,4.49,88794,"TUCOWS, INC.",M6K 3M1,CA,86,0,0,10,0,154,12,166,FALSE,FALSE,Real
+159,jsonline.com,6,5.77,2524,"GoDaddy Corporate Domains, LLC",,US,84,0,0,12,0,35,7,42,FALSE,FALSE,Real
+160,montgomeryadvertiser.com,5,4.73,38475,"GoDaddy Corporate Domains, LLC",,US,85,0,0,11,0,38,6,44,FALSE,FALSE,Real
+161,nytimes.com,8,7.98,44,"MarkMonitor, Inc.",10018,US,84,0,0,12,0,113,10,123,FALSE,FALSE,Real
+162,newsherald.com,5,5,19996,"GoDaddy Corporate Domains, LLC",,US,84,0,0,12,0,38,2,40,FALSE,FALSE,Real
+163,news-sentinel.com,4,4.31,195989,"GoDaddy.com, LLC",85284,US,83,0,0,13,0,33,14,47,FALSE,TRUE,Real
+164,newsday.com,6,5.58,4919,"GoDaddy.com, LLC",11747,US,86,0,0,10,0,120,7,127,FALSE,FALSE,Real
+165,uticaod.com,5,4.68,43733,"GoDaddy Corporate Domains, LLC",,US,85,0,0,11,0,38,1,39,FALSE,FALSE,Real
+166,omaha.com,5,5.11,17043,"TUCOWS, INC.",REDACTED FOR PRIVACY,US,84,0,1,11,0,193,14,207,FALSE,FALSE,Real
+167,ocregister.com,5,5.43,5964,"CSC CORPORATE DOMAINS, INC.",80202,US,84,0,0,12,0,164,30,194,FALSE,TRUE,Real
+168,oregonlive.com,6,5.87,1690,"CSC CORPORATE DOMAINS, INC.",10007,US,83,0,0,13,0,134,17,151,FALSE,FALSE,Real
+169,pajaronian.com,4,4.25,376437,GoDaddy Online Services Cayman Islands Ltd.,,US,83,0,0,13,0,58,38,96,FALSE,FALSE,Real
+170,palestineherald.com,4,4.27,285251,"GoDaddy.com, LLC",85284,US,86,0,0,10,0,125,30,155,FALSE,FALSE,Real
+171,palmbeachpost.com,5,5.25,14314,"GoDaddy Corporate Domains, LLC",,US,84,0,0,12,0,39,1,40,FALSE,FALSE,Real
+172,inquirer.com,5,5.26,14227,"GoDaddy.com, LLC",,,86,0,0,10,0,43,3,46,FALSE,FALSE,Real
+173,ptreyeslight.com,4,4.34,170813,Pair Domains,GDPR Redacted,US,85,0,0,11,0,34,6,40,FALSE,TRUE,Real
+174,postandcourier.com,6,5.51,5328,"GoDaddy.com, LLC",85284,US,83,0,0,13,0,263,20,283,FALSE,FALSE,Real
+175,pressdemocrat.com,5,5.11,16982,"Network Solutions, LLC",95401-6313,US,82,0,0,14,0,112,25,137,FALSE,FALSE,Real
+176,pressenterprise.com,2,1.86,39733549,"CSC CORPORATE DOMAINS, INC.",80202,US,88,0,0,8,0,141,33,174,FALSE,TRUE,Real
+177,providencejournal.com,5,5.03,19199,"GoDaddy Corporate Domains, LLC",,US,85,0,0,11,0,38,1,39,FALSE,FALSE,Real
+178,publicopiniononline.com,5,4.52,78821,"GoDaddy Corporate Domains, LLC",,US,85,0,0,11,0,33,9,42,FALSE,FALSE,Real
+179,rep-am.com,4,4.37,147606,NAMECHEAP INC,101,IS,83,0,0,13,0,280,15,295,FALSE,TRUE,Real
+180,richmond.com,5,4.95,22042,"TUCOWS, INC.",REDACTED FOR PRIVACY,US,83,0,0,13,0,179,10,189,FALSE,FALSE,Real
+181,riverdalepress.com,5,4.72,39447,"ENOM, INC.",REDACTED FOR PRIVACY,US,85,0,0,11,0,61,7,68,FALSE,FALSE,Real
+182,stltoday.com,5,5.4,6249,"Network Solutions, LLC",63101,US,83,0,0,13,0,191,21,212,FALSE,FALSE,Real
+183,sltrib.com,5,5.31,7365,"Network Solutions, LLC",84101-1431,US,83,0,0,13,0,77,15,92,FALSE,FALSE,Real
+184,sandiegouniontribune.com,5,5.27,14040,"MarkMonitor, Inc.",,US,84,0,0,12,0,222,22,244,FALSE,FALSE,Real
+185,heraldtribune.com,5,4.95,21854,"GoDaddy Corporate Domains, LLC",,US,85,0,0,11,0,38,1,39,FALSE,FALSE,Real
+186,thetimes-tribune.com,5,4.75,35670,"GoDaddy.com, LLC",85284,US,85,0,1,10,0,331,81,412,FALSE,FALSE,Real
+187,nj.com,6,5.57,4973,"CSC CORPORATE DOMAINS, INC.",10007,US,85,0,0,11,0,123,12,135,FALSE,FALSE,Real
+188,sun-sentinel.com,5,5.34,6825,"GoDaddy Corporate Domains, LLC",60654,US,84,0,0,12,0,239,32,271,FALSE,FALSE,Real
+189,tampabay.com,5,5.47,5637,"GoDaddy.com, LLC",85284,US,86,0,0,10,0,127,15,142,FALSE,FALSE,Real
+190,nola.com,5,5.29,13773,"Network Solutions, LLC",70810-1611,US,85,0,0,11,0,138,39,177,FALSE,FALSE,Real
+191,cjonline.com,5,4.84,28137,"GoDaddy Corporate Domains, LLC",,US,82,0,0,14,0,38,1,39,FALSE,FALSE,Real
+192,trentonian.com,5,4.82,29711,"CSC CORPORATE DOMAINS, INC.",80202,US,86,0,0,10,0,99,37,136,FALSE,TRUE,Real
+193,heraldcourier.com,5,4.54,73833,"TUCOWS, INC.",REDACTED FOR PRIVACY,US,86,0,0,10,0,174,9,183,FALSE,FALSE,Real
+194,tuscaloosanews.com,5,4.68,44580,"GoDaddy Corporate Domains, LLC",,US,85,0,0,11,0,36,2,38,FALSE,FALSE,Real
+195,virginislandsdailynews.com,4,4.4,130211,"GoDaddy.com, LLC",85284,US,86,0,0,10,0,62,4,66,FALSE,FALSE,Real
+196,eek.com,2,1.66,54737979,Google LLC,M4K 3K1,CA,85,0,0,11,0,0,0,0,FALSE,FALSE,Real
+197,journalnow.com,5,4.95,22103,"TUCOWS, INC.",REDACTED FOR PRIVACY,US,83,0,0,13,0,179,8,187,FALSE,FALSE,Real
+198,xeniagazette.com,4,4.18,548457,NAMECHEAP INC,101,IS,83,0,0,13,0,144,22,166,FALSE,FALSE,Real
