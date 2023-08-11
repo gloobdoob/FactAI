@@ -259,6 +259,7 @@ class SitePredictor:
 
                 preds = self.clf.predict(features_df)
                 predictions = [round(value) for value in preds]
+                print('RETURNING PREDICTIONS:', predictions)
                 return predictions
             else:
                 print('aint got thru')

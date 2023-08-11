@@ -12,7 +12,7 @@ import logging
 import os
 import joblib
 
-N_SEARCHES = 3
+N_SEARCHES = 5
 
 os.environ['TOKENIZERS_PARALLELISM'] = 'true'  # or 'false'
 os.environ['KMP_DUPLICATE_LIB_OK']='True'
@@ -27,33 +27,26 @@ def retry_results(text, tcV2):
     tries = 0
     s_results = None
     while not s_results and tries < 4:
-        print(f'retry {tries + 1} ')
         if tries == 0:
-            print('trying', text)
             s_results = gs.get_results(text)
 
         elif tries == 1:
             text = re.sub(r'[^\w\s]', '', text)
-            print('trying:', text)
             s_results = gs.get_results(text)
         elif tries == 2:
             text = tcV2.summarize(text)
             text = re.sub(r'[^\w\s]', '', text)
-            print('trying:', text)
             s_results = gs.get_results(text)
         elif tries == 3:
             text = tcV2.summarize(text, max_tokens=40)
             text = re.sub(r'[^\w\s]', '', text)
-            print('trying:', text)
             s_results = gs.get_results(text)
 
         tries = tries + 1
 
     if tries == 4 and not s_results:
-        print('no searches even after 4 tries')
         return []
     else:
-        print('found results')
         return s_results, text
 
 
@@ -98,9 +91,7 @@ def pred_overall(arr):
         model = joblib.load('classifiers/XGB-Text-Only-Classifier97ACC.joblib')
 
 
-    print('model loaded')
     result_prob = model.predict_proba([arr])[0][1]
-    print('result:', result_prob)
     result_round = round(result_prob)
     return result_prob, result_round
 
@@ -108,18 +99,12 @@ def text_extractor(img):
     ip = ImagePredictor()
     #reads and extracts text from image using EASYOCR
     ocr = ImageReader()
-    print('extracting text from image')
     text = ocr.read_img(img)
-    print("extracted:", text)
     image_pred = ip.predict_img(img)['real']
-    print('image predicted')
     return text, image_pred
 
 
-def predict_headline(text, img_pred=None):
-    print('predicting headline')
-    logger = logging.getLogger()
-    logging.disable(logging.CRITICAL)
+def predict_headline(text, img_pred=None, image_url=None):
 
     sp = SitePredictor()
     hp = HeadlinePredictor()
@@ -128,7 +113,6 @@ def predict_headline(text, img_pred=None):
     languages = [lingua.Language.ENGLISH, lingua.Language.TAGALOG]
     lang_detector = lingua.LanguageDetectorBuilder.from_languages(*languages).build()
 
-    print('classes loaded')
 
     query = text
 
@@ -137,7 +121,6 @@ def predict_headline(text, img_pred=None):
     corrected_query = None
     if img_pred is not None:
         # checks whether query is long enough as corrected text may sometimes be incorrect and output nothing at all
-        print("correcting text")
         tmp = tcV2.correct(query).replace("\n", "")
         corrected_query = query if len(tmp) < 20 else tmp
     else:
@@ -148,10 +131,8 @@ def predict_headline(text, img_pred=None):
     lang_pred = lang_detector.detect_language_of(corrected_query)
     lang = 'en' if str(lang_pred) == 'Language.ENGLISH' else 'tl' if str(lang_pred) == 'Language.TAGALOG' else None
 
-    print('query:', corrected_query)
     #if results come up empty, either due to unreadable text or a special character interfering with google's search algorithm
     full_res = retry_results(corrected_query, tcV2)
-    print('data gathered from sites')
     if full_res:
         s_results, corrected_query = full_res
         search_title = [title[0] for title in s_results]
@@ -171,29 +152,21 @@ def predict_headline(text, img_pred=None):
             else:
                 sim_vals = sc.check_similarity(corrected_query, search_title, lang)
 
-
             sim_vals = cut_pad(sim_vals, N_SEARCHES)
-            print('sim_vals', sim_vals, type(sim_vals))
             site_preds = cut_pad(np.array(site_preds, dtype='float32'), N_SEARCHES)
-            print('site preds', site_preds, type(site_preds))
 
             sim_mean = np.nanmean(sim_vals)
-            print('sim_mean', sim_mean)
             site_pred_mean = np.nanmean(site_preds)
-            print('site_pred_mean', site_pred_mean)
 
             n_real_predicted = count_vals(site_preds, nans=False)/N_SEARCHES
             n_fake_predicted = count_vals(site_preds, ones=False, nans=False)/N_SEARCHES
             n_nan_predicted  = count_vals(site_preds, ones=False, nans=True)/N_SEARCHES
-            print('n real', n_real_predicted, 'n fake', n_fake_predicted, 'n nan', n_nan_predicted)
 
 
             headline_pred = hp.predict_headlines(corrected_query, lang)['real']
-            print('headlines predicted:', headline_pred)
 
             if img_pred:
                 image_pred = img_pred
-                print('img predicted:', image_pred)
 
                 prediction_data.extend([sim_mean,
                                         site_pred_mean,
@@ -203,7 +176,6 @@ def predict_headline(text, img_pred=None):
                                         headline_pred,
                                         image_pred])
             else:
-                print('headline only')
                 prediction_data.extend([sim_mean,
                                         site_pred_mean,
                                         n_real_predicted,
@@ -215,27 +187,24 @@ def predict_headline(text, img_pred=None):
 
             prediction_data = np.array(prediction_data, dtype='float32')
 
-            print('prediction data', prediction_data)
-
-            print('predicting overall article')
             result_proba, result_round = pred_overall(prediction_data)
-            print(result_proba)
+            print(result_proba, result_round)
             prediction = 'RELIABLE' if result_round == 1 or result_round == 1.0 else 'UNRELIABLE'
             if prediction == 'RELIABLE':
                 print(prediction)
-                return f'''We predict that this is a '{prediction}' article with {result_proba} confidence.
-                      These are the articles from credible sites that we ran across when searching for this image: 
-                     {search_links}'''
-
+                return int(result_round), f"We predict that this is a '{prediction}' article with {result_proba} confidence." , search_links
+                
             elif prediction == 'UNRELIABLE':
                 print(prediction)
-                return f'''We predict that this is an '{prediction}' article with {result_proba} confidence. Please do more research regarding this topic
-                           These are the articles from credible sites that we ran across when searching for this image
-                           {search_links}'''
-
+                return int(result_round), f"We predict that this is an '{prediction}' article with {result_proba} confidence. Please do more research regarding this topic", search_links
+    
         else:
             print('no results')
             return """No search results appeared for this input, this may be risky to trust or you may need to input a better quality image"""
     else:
         print('no results')
         return """No search results appeared for this input, this may be risky to trust or you may need to input a better quality image"""
+    
+
+    
+    

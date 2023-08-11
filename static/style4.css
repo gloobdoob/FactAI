@@ -1,0 +1,485 @@
+/* top navigation */
+.topnav {
+    overflow: hidden;
+    background-color: #333;
+    font-size: 16px;
+  }
+  
+  .topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #333;
+  }
+  
+  .infographic {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .infographic-item {
+    flex-basis: 48%;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .infographic-item img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  
+  .infographic-item h2 {
+    font-size: 10px;
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .infographic-item p {
+    font-size: 16px;
+    margin: 0;
+    color: #333;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #333;
+    background: linear-gradient(to right, #FFF8D7, #FFE68C);
+    background-size: 200% 200%;
+    animation: sunsetBackground 10s ease-in-out infinite;
+  }
+  
+  @keyframes sunsetBackground {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  
+  .wave {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 100px;
+    width: 100%;
+    z-index: -1;
+  }
+  
+  .wave svg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+  
+ /* ... Existing styles ... */
+
+ .infographic {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-bottom: 100px; /* Increase this value to create space between infographic and footer */
+}
+  
+  .infographic-item {
+    position: relative;
+    flex-basis: 48%;
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .infographic-item:hover {
+    flex-basis: 50%; /* Expand to full width */
+  }
+  
+  .infographic-item img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  
+  .infographic-item h2 {
+    font-size: 10px;
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .infographic-item p {
+    font-size: 16px;
+    margin: 0;
+    color: #333;
+  }
+  
+.details {
+  position: absolute;
+  top: 0;
+  left: 100%; /* Position on the right side */
+  width: 100%;
+  padding: 20px;
+  background-color: rgba(200, 200, 200, 0.8);
+  color: #ffffff; /* Set the text color to white */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+}
+  
+  .infographic-item:hover .details {
+    opacity: 5;
+    visibility: visible;
+  }
+  
+  .infographic-item2 {
+    flex-basis: 48%;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .infographic-item2 img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+
+  .infographic-item2:hover .details2 {
+    opacity: 5;
+    visibility: visible;
+  }
+
+  .infographic-item2 p {
+    font-size: 16px;
+    margin: 0;
+    color: #333;
+  }
+
+  .infographic-item2 {
+    position: relative;
+    flex-basis: 48%;
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    margin-left:auto;
+  }
+  
+  .infographic-item2:hover {
+    flex-basis: 50%; /* Expand to full width */
+  }
+
+.details2 {
+    position: absolute;
+    top: 0;
+    right: 100%; /* Position on the left side */
+    width: 100%;
+    padding: 20px;
+    background-color: rgba(200, 200, 200, 0.8);
+    color: #ffffff; /* Set the text color to white */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+}
+
+  .infographic2 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+
+  .container2 {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px;
+  }
+
+  .container3 {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px;
+  }
+
+  .infographic3 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+
+.infographic-item3 {
+  flex-basis: 48%;
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.infographic-item3 img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.infographic-item3:hover .details {
+  opacity: 5;
+  visibility: visible;
+}
+
+.infographic-item3 p {
+  font-size: 16px;
+  margin: 0;
+  color: #333;
+}
+
+.infographic-item3 {
+  position: relative;
+  flex-basis: 48%;
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.infographic-item3:hover {
+  flex-basis: 50%; /* Expand to full width */
+}
+.container4 {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px;
+}
+
+.infographic4 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.infographic-item4 {
+flex-basis: 48%;
+margin-bottom: 20px;
+padding: 10px;
+background-color: #fff;
+box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.infographic-item4 img {
+width: 100%;
+height: auto;
+margin-bottom: 10px;
+}
+
+.infographic-item4:hover .details2 {
+opacity: 5;
+visibility: visible;
+}
+
+.infographic-item4 p {
+font-size: 16px;
+margin: 0;
+color: #333;
+}
+
+.infographic-item4 {
+position: relative;
+flex-basis: 48%;
+margin-bottom: 20px;
+padding: 20px;
+background-color: #fff;
+box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+transition: all 0.3s ease;
+margin-left:auto;
+}
+
+.infographic-item4:hover {
+flex-basis: 50%; /* Expand to full width */
+}
+
+.container5 {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px;
+}
+
+.infographic5 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.infographic-item5 {
+flex-basis: 48%;
+margin-bottom: 20px;
+padding: 10px;
+background-color: #fff;
+box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.infographic-item5 img {
+width: 100%;
+height: auto;
+margin-bottom: 100px; 
+}
+
+.infographic-item5:hover .details {
+opacity: 5;
+visibility: visible;
+}
+
+.infographic-item5 p {
+font-size: 16px;
+margin: 0;
+color: #333;
+}
+
+.infographic-item5 {
+position: relative;
+flex-basis: 48%;
+margin-bottom: 20px;
+padding: 20px;
+background-color: #fff;
+box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+transition: all 0.3s ease;
+}
+
+.infographic-item5:hover {
+flex-basis: 50%; /* Expand to full width */
+}
+
+/* Footer */
+.footer-distributed {
+  position:  fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #000000; /* Change the background color to black */
+  color: #ffffff; /* Change the text color to white */
+  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  text-align: left;
+  font: normal 16px sans-serif;
+  padding: 0px 50px;
+  z-index: 9999; /* Ensure the footer appears above other elements */
+  
+
+}
+.footer-distributed .footer-left p {
+  color: #8f9296;
+  font-size: 14px;
+  margin: 0;
+}
+
+/* Footer Links */
+.footer-distributed {
+  margin-top: 100px; /* Increase the top margin to push the footer lower */
+}
+
+.footer-distributed p.footer-links {
+  font-size: 14px;
+  line-height: 25px;
+  margin-bottom: 40px; /* Increase the bottom margin to create more space */
+}
+
+.footer-distributed p.footer-links a {
+  color: #8f9296;
+  margin-right: 15px;
+  transition: color 0.3s ease-in-out;
+  text-decoration: none;
+}
+
+.footer-distributed p.footer-links a:hover {
+  color: #3b9bff;
+}
+
+/* Social Media Icons */
+.footer-distributed .footer-right {
+  float: right;
+}
+
+.footer-distributed .footer-right a {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  background-color: #33383b;
+  border-radius: 2px;
+  font-size: 20px;
+  color: #ffffff;
+  text-align: center;
+  line-height: 35px;
+  margin-left: 3px;
+  transition: all 0.3s ease-in-out;
+}
+
+.footer-distributed .footer-right a:hover {
+  background-color: #3b9bff;
+}
+
+.meet-the-facters {
+  margin-left: auto;
+}
+
+/* Media Queries */
+@media (max-width: 880px) {
+  .footer-distributed {
+    font: bold 14px sans-serif;
+  }
+
+  .footer-distributed .footer-left,
+  .footer-distributed .footer-right {
+    display: block;
+    width: 100%;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+
+  .footer-distributed .footer-right {
+    float: none;
+    margin: 0 auto;
+  }
+
+  .footer-distributed .footer-left p.footer-links {
+    line-height: 1.8;
+  }
+}

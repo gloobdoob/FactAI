@@ -1,3 +1,5 @@
 
 config.py
 component testing/headlines predictor/urbandict-word-defs.csv
+component testing/headlines predictor/glove
+component testing/headlines predictor/word2vec

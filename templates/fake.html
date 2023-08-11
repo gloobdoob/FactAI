@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>What is Fake News?</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+    <!-- Google Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/static/style4.css" />
+</head>
+
+<body>
+  <div class="topnav">
+    <a href="/">Fact Check</a>
+    <a href="/Report">Report</a>
+    <a class="active" href="#fake News">Fake News</a>
+    <a href="/About">About</a>
+  </div>
+  <h1>What is Fake News?</h1>
+  <div class="container">
+    <div class="infographic">
+      <div class="infographic-item">
+        <img src="static/images/fakenews.png" alt="Image 1">
+        <h1>Verify the Source</h1>
+        <p>Be cautious of the sources you rely on for news. Check the credibility and reputation of the source before trusting the information.</p>
+
+        <div class="details">
+          <p>Look for well-known and established news organizations with a history of reliable and unbiased reporting.</p>
+          <p>Be cautious of sources with suspicious domain names, biased agendas, or a lack of transparency.</p>
+        </div>
+      </div>
+      <!-- Add more infographic items -->
+    </div>
+  </div>
+
+  <div class="container2">
+    <div class="infographic2">
+      <div class="infographic-item2">
+        <img src="static/images/critical thinking.jpeg" alt="Image 2">
+        <h1>Critical Thinking</h1>
+        <p>Develop critical thinking skills to question and evaluate the information presented. Look for supporting evidence, logical consistency, and multiple perspectives on a topic.</p>
+
+        <div class="details2">
+          <p>Critical thinkers don't accept claims at face value.</p>
+          <p>Critical thinkers recognize the importance of considering diverse viewpoints.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container3">
+    <div class="infographic3">
+      <div class="infographic-item3">
+        <img src="static/images/sourceeval.jpg" alt="Image 3">
+        <h1>Source Evaluation</h1>
+        <p>Assess the credibility of news sources by considering factors such as authority, purpose, coverage, timeliness, objectivity, and accuracy. </p>
+
+        <div class="details">
+          <p>Use website evaluation checklists to examine design, content quality, and the presence of original sources.</p>
+          <p>Look for sources that employ journalists with expertise and experience in the relevant subject matter.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container4">
+    <div class="infographic4">
+      <div class="infographic-item4">
+        <img src="static/images/indiv.gif" alt="Image 4">
+        <h1>Individual Actions</h1>
+        <p>Individuals should practice critical thinking, avoid sharing unverified information on social media, and report fake news when encountered.</p>
+        <div class="details2">
+          <p>Fake news often uses sensational headlines and emotional manipulation to grab attention. </p>
+          <p>Fact-checking plays a vital role in verifying the accuracy of information. Individuals should fact-check claims by using reliable fact-checking websites such as Politifact, FactCheck.org, and Snopes.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container5">
+    <div class="infographic5">
+      <div class="infographic-item5">
+        <img src="static/images/education.jpg" alt="Image 5">
+        <h1>Education and Digital Literacy</h1>
+        <p>Promote digital literacy programs and media literacy education in schools to equip individuals with the skills to evaluate news sources and identify fake news. </p>
+        <div class="details">
+          <p>Education and digital literacy programs should emphasize the development of critical thinking skills.</p>
+          <p>Education programs should focus on teaching individuals how to evaluate the credibility of sources.</p>
+          <p>Students should be taught how to critically analyze media messages, identify bias, recognize persuasive techniques, and distinguish between fact and opinion.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="/static/script.js"></script>
+
+  <footer class="footer-distributed">
+    <div class="footer-right">
+      <a href="https://www.facebook.com/profile.php?id=100093506902415&is_tour_completed=true"><i class="fab fa-facebook" aria-hidden="true"></i></a>
+      <a href="https://www.twitter.com/your_twitter_page_url"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+      <a href="https://github.com/gloobdoob"><i class="fab fa-github" aria-hidden="true"></i></a>
+    </div>
+    <div class="footer-left">
+      <p class="footer-links">
+        <a class="link-1" href="/">Home</a>
+        <a id="contact" href="mailto:asurascho@gmail.com">Contact Us</a>
+        <a class="meet-the-facters">Meet The Facters © 2023</a>
+      </p>
+    </div>
+  </footer>
+
+  <script>
+
+  
+  
+    var prevScrollPos = window.pageYOffset;
+  
+  window.addEventListener('scroll', function() {
+    var footer = document.querySelector('.footer-distributed');
+    var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    var windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+    var offset = 1000; // Adjust this offset value as needed
+  
+    if (scrollTop > prevScrollPos) {
+      // Scrolling down
+      if (scrollTop + windowHeight >= document.documentElement.scrollHeight - offset) {
+        footer.style.display = 'block'; // Show the footer when scrolled to the bottom
+      } else {
+        footer.style.display = 'none'; // Hide the footer when not scrolled to the bottom
+      }
+    } else {
+      // Scrolling up
+      footer.style.display = 'none'; // Hide the footer when scrolling up
+    }
+  
+    prevScrollPos = scrollTop;
+  });
+  
+  // Hide the footer initially
+  document.querySelector('.footer-distributed').style.display = 'none';
+  
+    
+  </script>
+
+</body>
+</html>

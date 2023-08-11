@@ -1,17 +1,19 @@
 <!DOCTYPE html>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <html lang="en">
 <head>
-
-  <title>Drag & Drop File Upload</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fact Check</title>
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
   <!-- Stylesheet -->
   <link rel="stylesheet" href="/static/style.css" />
-  <!-- Icons -->
-  <link href='https://unpkg.com/css.gg@2.0.0/icons/css/info.css' rel='stylesheet'>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <link rel="icon" href="static/images/Logo.png" type="image/x-icon">
+
+  <link href = "https://www.cssportal.com/css-loader-generator/" rel='stylesheet'>
 </head>
 
 <body>
@@ -19,106 +21,238 @@
   <div class="topnav">
     <a class="active" href="#index">Fact Check</a>
     <a href="/Report">Report</a>
+    <a href="/Fake">Fake News</a>
     <a href="/About">About</a>
   </div>
-  
-  <h1>Fact Check</h1>
-  <div class="container">
-    <div class="upload-section">
-      <div class="gg-info" id="gg-info" title="Please upload an image or enter text"></div>
-      <form action="{{ url_for('predict') }}" method="post" enctype="multipart/form-data">
-        <label for="upload-button">
-          <i class="fa-solid fa-upload"></i>&nbsp; Choose Or Drop Photos
-          <input type="file" accept="image/*" id="upload-button" name="imagefile" value="{{request.form.imagefile}}" />
-          
-        </label>
-        
-        <div id="error"></div>
-        <div id="image-display"></div>
-        
-        
 
-      </form>
+  <h1>FACT CHECK</h1>
+  <form id="fact-check-form" action="{{ url_for('predict') }}" method="post" enctype="multipart/form-data">
+    <div class="container-wrapper">
+      <div class="left-container">
+        <div class="upload-section" ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)" ondrop="handleFileDrop(event)">
+          <label for="upload-button">
+            <i class="fa-solid fa-upload"></i>&nbsp; Choose Or Click to submit Photos
+            <input type="file" accept="image/*" id="upload-button" name="imagefile" value="{{request.form.imagefile}}" />
+          </label>
+          <div id="error"></div>
+        </div>
+      </div>
+
+      <div class="right-container">
+        <div class="upload-section">
+          <div id="image-display-right"></div>
+        </div>
+      </div>
     </div>
 
-    <div class="headline-section">
-      <input type="text" id="text-input" name="headline-input" class="input_box" placeholder="Enter your news headline here..." />
-      <div class="second-gg-info" id="second-gg-info" title="Please upload an image or enter text"></div>
-    </div>
-
-    <div class="button-section">
-      <form action="{{ url_for('predict') }}" method="post" enctype="multipart/form-data">
+    <div class="separateheadline">
+      <div class="headline-section">
+        <input type="text" id="text-input" name="headline-input" class="input_box" placeholder="Enter your news headline here..." />
+      </div>
+      <div class="button-section">
+        <button class="button button_reset" type="button" onclick="clearcontent('image-display-right', 'output_display', 'text-input', 'outputstatic', 'site-links','.custom-loader')">Reset</button>
         <input type="submit" class="button button_check" value="Check">
-      </form>
-      <button class="button button_reset" type="button" onclick="clearcontent('image-display', 'output_display', 'text-input', 'error', '.gg-info','.second-gg-info')">Reset</button>
+      </div>
     </div>
-  </div>
-
-  <div class="progress-bar">
-    <div class="progress"></div>
+    
+  </form>
+  
+  <div class="outputforstatic">
+    <div class="custom-loader"></div>
+    <output id="outputstatic" type="output" name="display"></output>
   </div>
 
   <div class="outputcontainer">
     <output id="output_display" type="output" name="display"></output>
+    <div class="image-container">
+      <div id="image-display-reliable">
+        <img src='static/images/reliable.png' alt="Reliable Image" hidden style="width: 100px; height: 100px">
+      </div>
+      
+      <div id="image-display-unreliable">
+        <img src='static/images/unreliable.png' alt="Unreliable Image" hidden style="width: 100px; height: 100px">
+      </div>
+    </div>
   </div>
 
+  <div class="dropdown-container">
+    <label for="site-links">Links for the sites:</label>
+    <select id="site-links" name="site-links">
+      <option value="">List of Sites</option>
+    </select>
+  </div>
+
+  <div class="wave">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <path fill="#ffffff" fill-opacity="1" d="M0,96L80,122.7C160,149,320,203,480,202.7C640,203,800,149,960,117.3C1120,85,1280,75,1360,69.3L1440,64L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path>
+    </svg>
+  </div>
+
+  
   <!-- Script -->
   <script src="/static/script.js"></script>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
   <script>
-    function clearcontent(elementID, outputID, inputID, errorID) {
-      // Rest of the code to clear the content
-      document.getElementById(elementID).innerHTML = "";
-      document.getElementById(outputID).innerHTML = "";
-      document.getElementById(inputID).value = "";
+    function updateOutput(result, searchLinks, imageURL, logMessages){
+      let outputContainer = document.getElementById("output_display");
+      let logContainer = document.createElement("div");
 
-      // Remove the dropped image from the display
-      var imageInput = document.getElementById("upload-button");
-      imageInput.value = ""; // Clear the image input value
+      // Display result and extracted text
+      outputContainer.innerHTML = `<p>Result: ${result}</p>`;
 
-      // Remove the red line from the upload section
-      var uploadSection = document.getElementsByClassName("upload-section")[0];
-      uploadSection.classList.remove(errorID);
-  
+      if (result.includes("RELIABLE") && imageURL.includes("/reliable")) {
+        let reliableImageDisplayContainer = document.getElementById("image-display-reliable");
+        let reliableImage = reliableImageDisplayContainer.querySelector("img");
+        reliableImage.src = imageURL;
+        reliableImage.hidden = false; // Show the reliable image
+        console.log("Printing for reliable");
+      } else {
+        // Hide the reliable image if the result does not contain "RELIABLE" or no URL is provided
+        let reliableImageDisplayContainer = document.getElementById("image-display-reliable");
+        let reliableImage = reliableImageDisplayContainer.querySelector("img");
+        reliableImage.hidden = true;
+        console.log("Printing for not found reliable");
+      }
 
-      // Remove the red line from the headline section
-      var headlineSection = document.getElementsByClassName("headline-section")[0];
-      headlineSection.classList.remove(errorID);
-
-      // Remove the error icon
-      var alertSection = document.getElementsByClassName("gg-info")[0];
-      alertSection.style.display = 'none';
-      
-      // Remove the second error icon
-      var secondAlertSection = document.getElementsByClassName("second-gg-info")[0];
-      secondAlertSection.style.display = 'none';
-
-      // Hide the progress bar
-      var progressBar = document.querySelector('.progress-bar');
-      progressBar.style.display = 'none';
+      // Display specified image for unreliable predictions
+      if (result.includes("UNRELIABLE") && imageURL.includes("/unreliable")) {
+        let unreliableImageDisplayContainer = document.getElementById("image-display-unreliable");
+        let unreliableImage = unreliableImageDisplayContainer.querySelector("img");
+        unreliableImage.src = imageURL;
+        unreliableImage.hidden = false; // Show the unreliable image
+        console.log("Printing for unreliable");
+      } else {
+        // Hide the unreliable image if the result does not contain "UNRELIABLE" or no URL is provided
+        let unreliableImageDisplayContainer = document.getElementById("image-display-unreliable");
+        let unreliableImage = unreliableImageDisplayContainer.querySelector("img");
+        unreliableImage.hidden = true;
+        console.log("Printing for not found unreliable");
+      }
 
     }
-  
+
+    function updateOutputStatic(message) {
+      let outputContainer = document.getElementById("outputstatic");
+      let logItem = document.createElement("p");
+      logItem.innerText = message;
+      outputContainer.appendChild(logItem);
+    }
+
+    function updateDropdownOptions(search_links) {
+      var select = document.getElementById("site-links");
+
+      // Clear existing options
+      select.innerHTML = "";
+
+      // Create the default option
+      var defaultOption = document.createElement("option");
+      defaultOption.text = "List of Sites";
+      select.add(defaultOption);
+
+      // Add options for search links
+      search_links.forEach(function(link) {
+        var option = document.createElement("option");
+        option.value = link;
+        option.text = link;
+        select.add(option);
+      });
+    }
+
+    function copyDropdownValue() {
+      var dropdown = document.getElementById("site-links");
+      var selectedValue = dropdown.value;
+      
+      if (selectedValue !== "") {
+        navigator.clipboard.writeText(selectedValue)
+          .then(function() {
+            showDialog("Copied: " + selectedValue);
+          })
+          .catch(function(error) {
+            console.error("Error copying value: ", error);
+          });
+      } else {
+        showDialog("No value selected to copy.");
+      }
+    }
+
+    const dropdown = document.getElementById('site-links');
+
+    dropdown.addEventListener('change', () => {
+    const selectedOption = dropdown.options[dropdown.selectedIndex];
+    const url = selectedOption.value;
+
+    if (url !== '') {
+      window.open(url, '_blank');
+      }
+    });
+
+    var header = document.querySelector('.banner-header');
+
+    window.addEventListener('scroll', function() {
+      if (window.pageYOffset > document.documentElement.clientHeight) {
+        header.classList.add('sticky');
+      } else {
+        header.classList.remove('sticky');
+      }
+    });
+
+
+
+    function handleDragLeave(event) {
+      event.preventDefault();
+      event.stopPropagation();
+    
+      // Remove the hovered class to stop the animation
+      $('.upload-section').removeClass('hovered');
+    }
+    function handleDragOver(event) {
+      event.preventDefault();
+      event.stopPropagation();
+      event.dataTransfer.dropEffect = 'copy'; // Show a "copy" cursor when dragging over
+
+    }
+    
+    function handleFileDrop(event) {
+      event.preventDefault();
+      event.stopPropagation();
+    
+      // Remove the class from the upload-section container after dropping the file
+      $('.upload-section').removeClass('hovered');
+      
+      var files = event.dataTransfer.files;
+      if (files.length > 0) {
+        var file = files[0];
+        var fileInput = $('#upload-button')[0];
+        fileInput.files = files; // Set the dropped file to the file input
+        handleImagePreview(file);
+      }
+
+      // Remove the hovered class after the drop event
+      $('.upload-section').removeClass('hovered');
+    }
+    
+    function handleImagePreview(file) {
+      var reader = new FileReader();
+      reader.onload = function(event) {
+        var imageDisplay = document.getElementById('image-display-right');
+        imageDisplay.innerHTML = '<img src="' + event.target.result + '" alt="Uploaded Image" style="max-width: 100%; max-height: 100%;">';
+      };
+      reader.readAsDataURL(file);
+    }
+    
     $(function() {
-      $('form').on('submit', function(event) {
+      $('#fact-check-form').on('submit', function(event) {
         event.preventDefault();
-    
-        var progressBar = document.querySelector('.progress-bar');
-        var progress = document.querySelector('.progress');
-        progress.style.width = '0%';
-        progressBar.style.display = 'block'; // show the progress bar
-    
+
         // Check if an image file is selected
         var fileInput = $('#upload-button')[0];
         var imageFile = fileInput.files[0];
-    
+
         // Check if text input is provided
         var headline = $('#text-input').val().trim();
-    
+
         if (imageFile) {
           // Perform image processing
-          var formData = new FormData($('form')[0]);
+          var formData = new FormData($('#fact-check-form')[0]);
           $.ajax({
             type: 'POST',
             url: '/predict',
@@ -127,88 +261,144 @@
             cache: false,
             processData: false,
             beforeSend: function() {
-              // Display loading bar animation
-              progress.style.width = '0%';
-            },
-            xhr: function() {
-              // Create XHR object with progress tracking
-              var xhr = new window.XMLHttpRequest();
-              xhr.upload.addEventListener('progress', function(evt) {
-                if (evt.lengthComputable) {
-                  var percentComplete = (evt.loaded / evt.total) * 100;
-                  progress.style.width = percentComplete + '%';
-                }
-              }, false);
-              return xhr;
+              // Clear the previous message
+              document.getElementById("outputstatic").innerHTML = "";
+              // Display the new message
+              updateOutputStatic("Extracting text from image...");
+              $(".custom-loader").css("display", "block");
             },
             success: function(response) {
               // Update output display
-              $('#output_display').text(response.result);
-              progress.style.width = '0%'; // Reset the progress bar
-              progressBar.style.display = 'none'; // Hide the progress bar after completion
-            },
-            complete: function() {
-              // Hide the .gg-info icon
-              $('.gg-info').css('display', 'none');
+              document.getElementById("outputstatic").innerHTML = "";
+              updateOutputStatic("Output is Here!!!");
+              console.log(response)
+              updateOutput(response.result, response.search_links, response.image_url, response.log_messages);
+              updateDropdownOptions(response.search_links);
+              $('.custom-loader').css('display', 'none');
             }
+            
           });
         } else if (headline) {
-          // Simulate progress for text processing
-          var fakeProgress = 0;
-          var intervalId = setInterval(function() {
-            fakeProgress += 10;
-            progress.style.width = fakeProgress + '%';
-            if (fakeProgress >= 100) {
-              clearInterval(intervalId);
-              // Perform processing on the input text
-              var formData = new FormData();
-              formData.append('headline-input', headline);
-               $.ajax({
-                type: 'POST',
-                url: '/predict',
-                data: formData,
-                contentType: false,
-                cache: false,
-                processData: false,
-                success: function(response) {
-                  // Update output display
-                  $('#output_display').text(response.result);
-                  progress.style.width = '0%'; // Reset the progress bar
-                  progressBar.style.display = 'none'; // Hide the progress bar after completion
-                },
-                complete: function() {
-                  // Hide the .gg-info icon
-                  $('.gg-info').css('display', 'none');
-                  
-                }
-
-              });
+          // Perform processing on the input text
+          var formData = new FormData();
+          formData.append('headline-input', headline);
+          $.ajax({
+            type: 'POST',
+            url: '/predict',
+            data: formData,
+            contentType: false,
+            cache: false,
+            processData: false,
+            beforeSend: function() {
+              // Clear the previous message
+              document.getElementById("outputstatic").innerHTML = "";
+              // Display the new message
+              updateOutputStatic("Processing input text...");
+              $(".custom-loader").css("display", "block");
+            },
+            success: function(response) {
+              // Update output display
+              console.log(response)
+              updateOutput(response.result, response.search_links, response.image_url, response.log_messages);
+              updateDropdownOptions(response.search_links);
+              $('.custom-loader').css('display', 'none');
             }
-          }, 500);
-          
+            
+          });
         } else {
           // No input provided, display an error message
-          //$('#output_display').text('Please upload an image or enter text');
-          progressBar.style.display = 'none'; // Hide the progress bar if there's an error
-    
-          // Highlight the upload section
-          $('.upload-section').addClass('error');
-          $('.headline-section').addClass('error');
-          $('.gg-info').css('display', 'block'); // Show the .gg-info icon
-          $('.second-gg-info').css('display', 'block'); // Show the .second-gg-info icon
+          updateOutput('Error', 'Please upload an image or enter text', [], []);
         }
       });
-    
-      // Check if an image file is selected when the input changes
       $(document).ready(function() {
-        // Hide the .gg-info icon on page load
-        $('.gg-info').css('display', 'none');
-        $('.second-gg-info').css('display', 'none');
+        // Hide the loader icon on page load
+        $(".custom-loader").css('display', 'none');
       });
-      
     });
-    
-    
+
+
   </script>
+
+  <script>
+    function clearcontent(elementID, outputID, inputID, outputStaticID, dropdownID) {
+      document.getElementById(elementID).innerHTML = "";
+      document.getElementById(outputID).innerHTML = "";
+      document.getElementById(inputID).value = "";
+      document.getElementById(outputStaticID).innerHTML = ""; // Clear the outputstatic div
+
+       // Remove the error icon
+       var alertSection = document.getElementsByClassName("custom-loader")[0];
+       alertSection.style.display = 'none';
+       
+      // Reset the dropdown list
+      var select = document.getElementById(dropdownID);
+      select.innerHTML = "";
+      var defaultOption = document.createElement("option");
+      defaultOption.text = "List of Sites";
+      select.add(defaultOption);
+
+      // Hide the reliable and unreliable images
+      document.getElementById("image-display-reliable").querySelector("img").hidden = true;
+      document.getElementById("image-display-unreliable").querySelector("img").hidden = true;
+
+      // Remove the dropped image from the display
+      var imageInput = document.getElementById("upload-button");
+      imageInput.value = ""; // Clear the image input value
+    }
+  </script>
+
+  
+    
+    
+ 
+  
+<footer class="footer-distributed">
+  <div class="footer-right">
+    <a href="https://www.facebook.com/profile.php?id=100093506902415&is_tour_completed=true"><i class="fab fa-facebook" aria-hidden="true"></i></a>
+    <a href="https://www.twitter.com/your_twitter_page_url"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+    <a href="https://github.com/gloobdoob"><i class="fab fa-github" aria-hidden="true"></i></a>
+  </div>
+  <div class="footer-left">
+    <p class="footer-links">
+      <a class="link-1" href="/">Home</a>
+      <a id="contact" href="mailto:asurascho@gmail.com">Contact Us</a>
+      <a class="meet-the-facters">Meet The Facters © 2023</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+
+  
+  
+  var prevScrollPos = window.pageYOffset;
+
+window.addEventListener('scroll', function() {
+  var footer = document.querySelector('.footer-distributed');
+  var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  var windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+  var offset = 1000; // Adjust this offset value as needed
+
+  if (scrollTop > prevScrollPos) {
+    // Scrolling down
+    if (scrollTop + windowHeight >= document.documentElement.scrollHeight - offset) {
+      footer.style.display = 'block'; // Show the footer when scrolled to the bottom
+    } else {
+      footer.style.display = 'none'; // Hide the footer when not scrolled to the bottom
+    }
+  } else {
+    // Scrolling up
+    footer.style.display = 'none'; // Hide the footer when scrolling up
+  }
+
+  prevScrollPos = scrollTop;
+});
+
+// Hide the footer initially
+document.querySelector('.footer-distributed').style.display = 'none';
+
+  
+</script>
+
 </body>
 </html>

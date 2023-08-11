@@ -1,14 +1,11 @@
 let uploadButton = document.getElementById("upload-button");
-let chosenImage = document.getElementById("chosen-image");
-let fileName = document.getElementById("file-name");
 let container = document.querySelector(".container");
 let error = document.getElementById("error");
-let imageDisplay = document.getElementById("image-display");
-let resetDisplay = document.getElementById("image-display");
+let imageDisplayRight = document.getElementById("image-display-right");
 
 const fileHandler = (file, name, type) => {
   if (type.split("/")[0] !== "image") {
-    //File Type Error
+    // File Type Error
     error.innerText = "Please upload an image file";
     return false;
   }
@@ -16,20 +13,40 @@ const fileHandler = (file, name, type) => {
   let reader = new FileReader();
   reader.readAsDataURL(file);
   reader.onloadend = () => {
-    //image and file name
+    // Image and file name
     let imageContainer = document.createElement("figure");
     let img = document.createElement("img");
     img.src = reader.result;
     imageContainer.appendChild(img);
     imageContainer.innerHTML += `<figcaption>${name}</figcaption>`;
-    imageDisplay.appendChild(imageContainer);
+    imageDisplayRight.appendChild(imageContainer);
   };
 };
 
+function output_callback(response) {
+  let outputContainer = document.getElementById("outputstatic");
+  let logContainer = document.createElement("div");
 
-//Upload Button
+  // Clear previous content
+  outputContainer.innerHTML = "";
+
+  // Display result and extracted text
+  outputContainer.innerHTML += `<p>Result: ${response.result}</p>`;
+  outputContainer.innerHTML += `<p>Extracted Text: ${response.extracted_text}</p>`;
+
+  // Display log messages
+  logContainer.innerHTML = "<h3>Log Messages:</h3>";
+  response.log_messages.forEach((log) => {
+    let logItem = document.createElement("p");
+    logItem.innerText = log;
+    logContainer.appendChild(logItem);
+  });
+  outputContainer.appendChild(logContainer);
+}
+
+// Upload Button
 uploadButton.addEventListener("change", () => {
-  imageDisplay.innerHTML = "";
+  imageDisplayRight.innerHTML = "";
   Array.from(uploadButton.files).forEach((file) => {
     fileHandler(file, file.name, file.type);
   });
@@ -73,7 +90,7 @@ container.addEventListener(
     container.classList.remove("active");
     let draggedData = e.dataTransfer;
     let files = draggedData.files;
-    imageDisplay.innerHTML = "";
+    imageDisplayRight.innerHTML = "";
     Array.from(files).forEach((file) => {
       fileHandler(file, file.name, file.type);
     });
@@ -81,20 +98,11 @@ container.addEventListener(
   false
 );
 
-// button_check.addEventListener('submit', (event) => {
+function showDetails(itemNumber) {
+  const detailsElement = document.getElementById(`details${itemNumber}`);
+  detailsElement.classList.toggle("show");
+}
 
-//   // handle the form data
-//   fetch('http://127.0.0.1:5000/predict', {
-//     method: 'POST',
-//     mode: 'cors',
-//     headers: {
-//       'Content-Type': 'application/json'
-//     },
-//   })
-// });
-
-
-window.onload = () => {
+window.addEventListener('DOMContentLoaded', () => {
   error.innerText = "";
-  
-};
+});

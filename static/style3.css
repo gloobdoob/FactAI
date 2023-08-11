@@ -24,7 +24,6 @@
 h1 {
   font-size: 55px;
   text-align: center;
-  margin-top: -30px;
   margin: 0;
 }
   
@@ -36,23 +35,52 @@ body {
   font-weight: 400;
   line-height: 1.5;
   color: #333;
+  background: linear-gradient(to right, #FFF8D7, #FFE68C);
+  background-size: 200% 200%;
+  animation: sunsetBackground 10s ease-in-out infinite;
+}
+
+@keyframes sunsetBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+.wave {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 100px;
+  width: 100%;
+  z-index: -1;
+}
+
+.wave svg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
   
   /* Container for the report form */
   .report-form {
-   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  margin: 0 auto;
-  width: 70%; /* Adjusted this to give more space for the team-containers horizontally */
-  max-height: auto; /* Added  this line to set a proper height to the webpage without using the vertical scroll function */
-  margin: 55px auto 0;
-  background-color: #f2f2f2;
-  padding: 10px;
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-}
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 60%;
+    background-color: #f2f2f2;
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  }
   
   /* Style for the left column */
   .left-column {
@@ -110,16 +138,16 @@ body {
   
   .contact-email:focus {
     outline: none;
-    border-bottom-color: #dc3c3c;
+    border-bottom-color: #3C99DC;
   }
   
   /* Style for the submit button */
   .submit-button {
     width: 100%;
-    background-color: #4CAF50;
+    background-color: #3C99DC;
     color: white;
     border: none;
-    padding: 15px 50px;
+    padding: 15px 30px;
     border-radius: 5px;
     font-size: 24px;
     cursor: pointer;
@@ -127,6 +155,101 @@ body {
   }
   
   .submit-button:hover {
-    background-color: #4caf4fc9
+    background-color: #2D7BB5
   }
 
+/* Footer */
+.footer-distributed {
+  position:  fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #000000; /* Change the background color to black */
+  color: #ffffff; /* Change the text color to white */
+  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  text-align: left;
+  font: normal 16px sans-serif;
+  padding: 0px 50px;
+  z-index: 9999; /* Ensure the footer appears above other elements */
+  
+
+}
+.footer-distributed .footer-left p {
+  color: #8f9296;
+  font-size: 14px;
+  margin: 0;
+}
+
+/* Footer Links */
+.footer-distributed {
+  margin-top: 100px; /* Increase the top margin to push the footer lower */
+}
+
+.footer-distributed p.footer-links {
+  font-size: 14px;
+  line-height: 25px;
+  margin-bottom: 40px; /* Increase the bottom margin to create more space */
+}
+
+.footer-distributed p.footer-links a {
+  color: #8f9296;
+  margin-right: 15px;
+  transition: color 0.3s ease-in-out;
+  text-decoration: none;
+}
+
+.footer-distributed p.footer-links a:hover {
+  color: #3b9bff;
+}
+
+/* Social Media Icons */
+.footer-distributed .footer-right {
+  float: right;
+}
+
+.footer-distributed .footer-right a {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  background-color: #33383b;
+  border-radius: 2px;
+  font-size: 20px;
+  color: #ffffff;
+  text-align: center;
+  line-height: 35px;
+  margin-left: 3px;
+  transition: all 0.3s ease-in-out;
+}
+
+.footer-distributed .footer-right a:hover {
+  background-color: #3b9bff;
+}
+
+.meet-the-facters {
+  margin-left: auto;
+}
+
+/* Media Queries */
+@media (max-width: 880px) {
+  .footer-distributed {
+    font: bold 14px sans-serif;
+  }
+
+  .footer-distributed .footer-left,
+  .footer-distributed .footer-right {
+    display: block;
+    width: 100%;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+
+  .footer-distributed .footer-right {
+    float: none;
+    margin: 0 auto;
+  }
+
+  .footer-distributed .footer-left p.footer-links {
+    line-height: 1.8;
+  }
+}

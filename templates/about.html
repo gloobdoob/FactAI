@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -15,21 +14,19 @@
     />
     <link rel="stylesheet" href="/static/style2.css" />
 </head>
+
 <body>
     <!-- Top Navigation -->
     <div class="topnav">
         <a href="/">Fact Check</a>
         <a href="/Report">Report</a>
+        <a href="/Fake">Fake News</a>
         <a class="active"href="#about">About</a>
     </div>
-    
-    
-     
-
+    <h1>Meet the Facters</h1>
     <div class="container">
-
+      
       <div class="team-container">
-        <h1>Meet the Facters</h1>
         <div class="team-circle">
           <img src="/static/images/carlo.jpg" alt="Carlo" class="team-avatar">
           <h4 class="team-name">Carlo Victor Almeda</h4>
@@ -42,18 +39,60 @@
         </div>
         <div class="team-circle">
           <img src="/static/images/kairone.jpg" alt="Kai" class="team-avatar">
-          <h4 class="team-name">Kairone Glenn Natividad</h4>
+          <h4 class="team-name">Kairone Natividad</h4>
           <p class="team-title">Product Manager</p>
         </div>
       </div>
-      <div class="team-container">
-        <div class="team-circle">
-          <!-- <img src="/static/images/jennylinde.jpg" alt="Maam Jen" class="team-avatar">
-          <h4 class="team-name">Ma'am Jennylinde Manaois</h4>
-          <p class="team-title">Research Adviser</p>
-        </div> 
-      -->
-      </div>
     </div>
+
+    <footer class="footer-distributed">
+      <div class="footer-right">
+        <a href="https://www.facebook.com/profile.php?id=100093506902415&is_tour_completed=true"><i class="fab fa-facebook" aria-hidden="true"></i></a>
+        <a href="https://www.twitter.com/your_twitter_page_url"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+        <a href="https://github.com/gloobdoob"><i class="fab fa-github" aria-hidden="true"></i></a>
+      </div>
+      <div class="footer-left">
+        <p class="footer-links">
+          <a class="link-1" href="/">Home</a>
+          <a id="contact" href="mailto:asurascho@gmail.com">Contact Us</a>
+          <a class="meet-the-facters">Meet The Facters © 2023</a>
+        </p>
+
+      </div>
+    </footer>
+
+    <script>
+
+  
+  
+      var prevScrollPos = window.pageYOffset;
+    
+    window.addEventListener('scroll', function() {
+      var footer = document.querySelector('.footer-distributed');
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      var windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+      var offset = 1000; // Adjust this offset value as needed
+    
+      if (scrollTop > prevScrollPos) {
+        // Scrolling down
+        if (scrollTop + windowHeight >= document.documentElement.scrollHeight - offset) {
+          footer.style.display = 'block'; // Show the footer when scrolled to the bottom
+        } else {
+          footer.style.display = 'none'; // Hide the footer when not scrolled to the bottom
+        }
+      } else {
+        // Scrolling up
+        footer.style.display = 'none'; // Hide the footer when scrolling up
+      }
+    
+      prevScrollPos = scrollTop;
+    });
+    
+    // Hide the footer initially
+    document.querySelector('.footer-distributed').style.display = 'none';
+    
+      
+    </script>
+  
 </body>
 </html>
